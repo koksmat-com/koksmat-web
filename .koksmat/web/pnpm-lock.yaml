@@ -134,6 +134,9 @@ dependencies:
   '@types/yaml':
     specifier: ^1.9.7
     version: 1.9.7
+  '@vercel/speed-insights':
+    specifier: ^1.0.14
+    version: 1.0.14(next@14.2.15)(react@18.2.0)(svelte@4.2.17)(vue@3.4.27)
   ai:
     specifier: ^3.1.13
     version: 3.1.13(react@18.2.0)(solid-js@1.8.17)(svelte@4.2.17)(vue@3.4.27)(zod@3.23.8)
@@ -3745,6 +3748,36 @@ packages:
 
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
+
+  /@vercel/speed-insights@1.0.14(next@14.2.15)(react@18.2.0)(svelte@4.2.17)(vue@3.4.27):
+    resolution: {integrity: sha512-env1BkPddz1UaEZwBL4GmfRksMi2LbiYaKuoxMQjfLk83aEh7kkWMukkUhpQVs717NE6nnD+1+KO85GZHOZ4nQ==}
+    requiresBuild: true
+    peerDependencies:
+      '@sveltejs/kit': ^1 || ^2
+      next: '>= 13'
+      react: ^18 || ^19 || ^19.0.0-rc
+      svelte: '>= 4'
+      vue: ^3
+      vue-router: ^4
+    peerDependenciesMeta:
+      '@sveltejs/kit':
+        optional: true
+      next:
+        optional: true
+      react:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+      vue-router:
+        optional: true
+    dependencies:
+      next: 14.2.15(@babel/core@7.25.8)(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      svelte: 4.2.17
+      vue: 3.4.27(typescript@5.4.4)
+    dev: false
 
   /@vue/compiler-core@3.4.27:
     resolution: {integrity: sha512-E+RyqY24KnyDXsCuQrI+mlcdW3ALND6U7Gqa/+bVwbcpcR3BRRIckFoz7Qyd4TTlnugtwuI7YgjbvsLmxb+yvg==}
