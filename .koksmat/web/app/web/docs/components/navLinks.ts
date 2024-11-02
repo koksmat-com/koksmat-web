@@ -67,10 +67,7 @@ export const navLinks = [
     href: "/tools/docs/components/toolcard-small",
     label: "Tool Cards Small",
   },
-  {
-    href: "/tools/docs/components/translate",
-    label: "Translation",
-  },
+
   {
     href: "/tools/docs/components/tree-editor",
     label: "Tree Editor",

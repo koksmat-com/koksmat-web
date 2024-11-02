@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 export function MagicButtonOnePagerComponent() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-50 to-primary-100 p-8 flex flex-col items-center justify-center">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -22,8 +22,8 @@ export function MagicButtonOnePagerComponent() {
         <div className="p-6 space-y-6">
           <section>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Commercial off-the-shelf (COTS) solutions often fall short for growing enterprises. 
-              Enter the "Magic Button" and its associated framework - an innovative solution to bridge the gap between COTS limitations and your organization's unique needs.
+              Commercial off-the-shelf (COTS) solutions often fall short for growing enterprises.
+              Enter the &ldquo;Magic Button&ldquo; and its associated framework - an innovative solution to bridge the gap between COTS limitations and your organization&lsquo;s unique needs.
             </p>
           </section>
 
@@ -41,7 +41,7 @@ export function MagicButtonOnePagerComponent() {
               <ul className="list-disc pl-5 space-y-2 text-gray-700">
                 <li>User-friendly interface integrated within existing tools</li>
                 <li>Access to customized solutions tailored to your needs</li>
-                <li>Powered by the comprehensive "Magic Box" framework</li>
+                <li>Powered by the comprehensive &ldquo;Magic Box&ldquo; framework</li>
               </ul>
             </div>
           </section>
@@ -54,7 +54,7 @@ export function MagicButtonOnePagerComponent() {
                 { icon: <Lock className="w-8 h-8" />, text: "PostgreSQL Database" },
                 { icon: <Box className="w-8 h-8" />, text: "GitHub Repositories" },
               ].map((item, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   whileHover={{ scale: 1.05 }}
                   className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md w-40"
@@ -74,7 +74,7 @@ export function MagicButtonOnePagerComponent() {
                 "Increase efficiency with context-aware tools",
                 "Improve data security and privacy",
               ].map((benefit, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   whileHover={{ scale: 1.03 }}
                   className="p-4 bg-primary-50 rounded-lg flex items-start"

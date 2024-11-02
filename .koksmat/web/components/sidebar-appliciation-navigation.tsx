@@ -68,18 +68,18 @@ export default function SidebarApplicationDesigner({
     {
       id: nanoid(),
       text: 'Getting Started',
-      icon: 'folder',
+      icon: 'Folder',
       children: [
         {
           id: nanoid(),
           text: 'Introduction',
-          icon: 'fileText',
+          icon: "FileText",
           action: navigationActions[0]
         },
         {
           id: nanoid(),
           text: 'Quick Start',
-          icon: 'fileText',
+          icon: 'FileText',
           action: navigationActions[0]
         }
       ]
@@ -87,18 +87,18 @@ export default function SidebarApplicationDesigner({
     {
       id: nanoid(),
       text: 'Components',
-      icon: 'folder',
+      icon: 'Folder',
       children: [
         {
           id: nanoid(),
           text: 'Documentation',
-          icon: 'fileText',
+          icon: 'FileText',
           action: navigationActions[1]
         },
         {
           id: nanoid(),
           text: 'Support',
-          icon: 'fileText',
+          icon: 'FileText',
           action: navigationActions[2]
         }
       ]
@@ -152,7 +152,7 @@ function PreviewNavigation({ items }: { items: EditorData }) {
       {items.map((item) => (
         <div key={item.id}>
           <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground mb-2">
-            {item.icon === 'folder' ? (
+            {item.icon === 'Folder' ? (
               <FolderOpen className="h-4 w-4" />
             ) : (
               <FileText className="h-4 w-4" />
@@ -193,7 +193,7 @@ function PreviewItem({ item }: { item: EditorData[0] }) {
         className="w-full justify-start px-2 py-1 h-8 text-sm font-normal"
       >
         <div className="flex items-center gap-2">
-          {item.icon === 'folder' ? (
+          {item.icon === 'Folder' ? (
             <FolderOpen className="h-4 w-4" />
           ) : (
             <FileText className="h-4 w-4" />

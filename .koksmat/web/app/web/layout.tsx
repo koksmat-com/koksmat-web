@@ -14,7 +14,7 @@ import { ApplicationRoot } from "@/components/application-root";
 export default function Layout(props: { children: any }) {
   const { children } = props;
   const magicbox = useContext(MagicboxContext);
-  if (!magicbox.user) {
+  if (false && !magicbox.user) {
     return (
 
       <div className="flex h-screen">
@@ -40,6 +40,7 @@ export default function Layout(props: { children: any }) {
 
     );
   }
+  return <div>{children}</div>
   return (
     <SidebarProvider>
       <AppProvider>
