@@ -1,3 +1,4 @@
+"use client"
 import { useState, useEffect, useCallback } from 'react'
 import Link from "next/link"
 import { ChefHat, Code2, Copy, ExternalLink, Github, Users, Cog, Wand2, Lightbulb, ArrowUp, Menu, X, Search, Globe, Sun, Moon, Bot } from "lucide-react"
@@ -485,8 +486,8 @@ export default function Component() {
                           <button
                             onClick={() => scrollToSection(role)}
                             className={`block w-full text-left p-2 rounded-lg transition-colors ${activeSection === role
-                                ? 'bg-orange-100 dark:bg-orange-600 text-orange-800 dark:text-white'
-                                : 'hover:bg-gray-100 dark:hover:bg-gray-700'
+                              ? 'bg-orange-100 dark:bg-orange-600 text-orange-800 dark:text-white'
+                              : 'hover:bg-gray-100 dark:hover:bg-gray-700'
                               }`}
                           >
                             {t[role as keyof typeof t]}
