@@ -13,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { APPNAME } from '@/app/global'
 
 type SupportedLanguage = 'en' | 'da';
 
@@ -305,7 +306,7 @@ export default function Component() {
                 />
               </div>
               <nav className="flex space-x-6">
-                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors">{t.docs}</Link>
+                <Link href={"/" + APPNAME + "/guides"} className="text-gray-600 hover:text-orange-500 transition-colors">{t.docs}</Link>
                 <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors">{t.about}</Link>
                 <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors">{t.blog}</Link>
                 <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors">

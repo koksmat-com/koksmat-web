@@ -5,3 +5,7 @@ workdir
 .koksmat/app/__debug*
 .koksmat/app/database/tern/tern.conf
 .vercel
+.koksmat/web/.session/*/**
+.koksmat/web/.koksmat/*/**
+.koksmat/web/.koksmat/state.json
+.koksmat/web/.koksmat/state.yaml
