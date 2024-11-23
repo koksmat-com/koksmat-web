@@ -12,7 +12,7 @@ import { TreeEditor } from './tree-editor'
 import { nanoid } from 'nanoid'
 import { EditorData } from './tree-editor-components'
 
-
+import { ScrollArea } from "@/components/ui/scroll-area"
 export default function LayoutGuides({ children }: { children: React.ReactNode }) {
   const isInIframe = useIsInIframe()
   const [leftPanelSize, setLeftPanelSize] = React.useState(20)
@@ -152,11 +152,14 @@ export default function LayoutGuides({ children }: { children: React.ReactNode }
       >
         <ResizablePanel defaultSize={20} minSize={10}>
           <div className="h-full w-full bg-gray-10 p-3">
-            <TreeEditor
-              initialData={exampleData}
-              onChange={(data) => console.log('Structure updated:', data)}
-              actions={exampleActions}
-            />
+            <ScrollArea className="h-full w-full rounded-md border">
+              <TreeEditor
+                initialData={exampleData}
+                mode="edit"
+                onChange={(data) => console.log('Structure updated:', data)}
+                actions={exampleActions}
+              />
+            </ScrollArea>
           </div>
         </ResizablePanel>
         <ResizableHandle withHandle />

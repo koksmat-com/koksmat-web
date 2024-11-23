@@ -44,17 +44,19 @@ import {
 
 import ActionSelector, { ActionType, ActionPropertyData, getActionIcon, ActionPropertyEditorProps, getPropertyEditor } from './action-selector'
 import { IconPicker } from './icon-picker'
+import { TooltipProvider } from './ui/tooltip'
 
 // Main TreeEditor component
 export const TreeEditor: React.FC<{
+  mode: EditorMode
   initialData: EditorData
   onChange: (data: EditorData) => void
   className?: string
   actions: ActionType[]
-}> = ({ initialData, onChange, className = '', actions }) => {
+}> = ({ mode, initialData, onChange, className = '', actions }) => {
   const { currentState, updateState, undo, redo, canUndo, canRedo } =
     useUndoRedo(initialData)
-  const [mode, setMode] = useState<EditorMode>('view')
+
   const [selectedItem, setSelectedItem] = useState<string | null>(null)
   const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false)
   const [itemToDelete, setItemToDelete] = useState<number[] | null>(null)
@@ -480,42 +482,14 @@ export const TreeEditor: React.FC<{
   }
 
   return (
-    <Card className={`w-full max-w-5xl mx-auto ${className}`}>
-      <CardContent className="p-6">
-        <div className="flex justify-between mb-4">
-          <Select
-            value={mode}
-            onValueChange={(value: EditorMode) => setMode(value)}
-          >
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Select mode" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="view">
-                <div className="flex items-center">
-                  <Eye className="w-4 h-4 mr-2" />
-                  View
-                </div>
-              </SelectItem>
-              <SelectItem value="edit">
-                <div className="flex items-center">
-                  <Edit className="w-4 h-4 mr-2" />
-                  Edit
-                </div>
-              </SelectItem>
-              <SelectItem value="reorder">
-                <div className="flex items-center">
-                  <Move className="w-4 h-4 mr-2" />
+    <TooltipProvider>
 
-                  Reorder
-                </div>
-              </SelectItem>
-            </SelectContent>
-          </Select>
+      {mode !== 'view' && (
+        <div className="flex justify-between mb-4 ">
           <div className="space-x-2">
             <Button
               onClick={undo}
-              disabled={!canUndo || mode === 'view'}
+              disabled={!canUndo}
               size="sm"
             >
               <Undo className="w-4 h-4 mr-2" />
@@ -523,80 +497,80 @@ export const TreeEditor: React.FC<{
             </Button>
             <Button
               onClick={redo}
-              disabled={!canRedo || mode === 'view'}
+              disabled={!canRedo}
               size="sm"
             >
               <Redo className="w-4 h-4 mr-2" />
               Redo
             </Button>
           </div>
-        </div>
-        <div className="flex">
-          <div className="flex-grow overflow-auto max-h-[600px]">
-            {currentState.length === 0 ? (
-              <div className="flex flex-col items-center justify-center h-64">
-                <p className="mb-4 text-muted-foreground">No items to display.</p>
-                {mode !== 'view' && (
-                  <Button onClick={() => addItem([])}>
-                    <Plus className="w-4 h-4 mr-2" />
-                    Add Root Item
-                  </Button>
-                )}
-              </div>
-            ) : (
-              <div>{renderItems(currentState)}</div>
-            )}
-            {/* {mode === 'edit' && currentState.length === 0 && (
+        </div>)}
+      <div className="flex ">
+        <div className="flex-grow overflow-auto h-full">
+          {currentState.length === 0 ? (
+            <div className="flex flex-col items-center justify-center h-64">
+              <p className="mb-4 text-muted-foreground">No items to display.</p>
+              {mode !== 'view' && (
+                <Button onClick={() => addItem([])}>
+                  <Plus className="w-4 h-4 mr-2" />
+                  Add Root Item
+                </Button>
+              )}
+            </div>
+          ) : (
+            <div>{renderItems(currentState)}</div>
+          )}
+          {/* {mode === 'edit' && currentState.length === 0 && (
               <Button onClick={() => addItem([])} className="mt-4">
                 <Plus className="w-4 h-4 mr-2" />
                 Add Root Item
               </Button>
             )} */}
-          </div>
-          {propertiesPanelOpen && selectedItemData && (
-            <Card className="w-64 ml-4 p-4">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-lg font-semibold">Properties</h3>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => setPropertiesPanelOpen(false)}
-                >
-                  <X className="w-4 h-4" />
-                </Button>
-              </div>
-              <div className="space-y-4">
-                <div>
-                  <Label htmlFor="itemName">Name</Label>
-                  <Input
-                    id="itemName"
-                    value={selectedItemData.text}
-                    onChange={(e) =>
-                      updateItemProperty('text', e.target.value)
-                    }
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="itemIcon">Icon</Label>
-                  <IconPicker mode={mode === "edit" ? "edit" : "view"} value={selectedItemData.icon} onIconChange={(value) => updateItemProperty('icon', value)} />
-
-                </div>
-                <div>
-                  <Label htmlFor="itemAction">Action</Label>
-                  <ActionSelector
-                    actions={actions}
-                    onActionSelect={handleActionSelect}
-                    onUpdateProperties={handleUpdateProperties}
-                    getActionIcon={getActionIcon}
-                    getPropertyEditor={getPropertyEditor}
-
-                  />
-                </div>
-              </div>
-            </Card>
-          )}
         </div>
-      </CardContent>
+        {propertiesPanelOpen && selectedItemData && (
+          <Card className="w-64 ml-4 p-4">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg font-semibold">Properties</h3>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setPropertiesPanelOpen(false)}
+              >
+                <X className="w-4 h-4" />
+              </Button>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <Label htmlFor="itemName">Name</Label>
+                <Input
+                  id="itemName"
+                  value={selectedItemData.text}
+                  onChange={(e) =>
+                    updateItemProperty('text', e.target.value)
+                  }
+                />
+              </div>
+              <div>
+                <Label htmlFor="itemIcon">Icon</Label>
+                <IconPicker mode={mode === "edit" ? "edit" : "view"} value={selectedItemData.icon} onIconChange={(value) => updateItemProperty('icon', value)} />
+
+              </div>
+              <div>
+                <Label htmlFor="itemAction">Action</Label>
+                <ActionSelector
+                  actions={actions}
+                  onActionSelect={handleActionSelect}
+                  onUpdateProperties={handleUpdateProperties}
+                  getActionIcon={getActionIcon}
+                  getPropertyEditor={getPropertyEditor}
+
+                />
+              </div>
+            </div>
+          </Card>
+        )}
+      </div>
+
       <Dialog open={deleteConfirmOpen} onOpenChange={setDeleteConfirmOpen}>
         <DialogContent>
           <DialogHeader>
@@ -630,7 +604,8 @@ export const TreeEditor: React.FC<{
           </DialogFooter>
         </DialogContent>
       </Dialog>
-    </Card>
+
+    </TooltipProvider>
   )
 }
 
@@ -738,6 +713,7 @@ const exampleData: EditorData = [
 
 // Export the component
 export default function Component() {
+  const [mode, setMode] = useState<EditorMode>('view')
   // Example actions (you should replace these with your actual actions)
   const exampleActions: ActionType[] = [
     {
@@ -761,11 +737,45 @@ export default function Component() {
   ]
 
   return (
+    <div>
+      <Select
+        value={mode}
+        onValueChange={(value: EditorMode) => setMode(value)}
+      >
+        <SelectTrigger className="w-[180px]">
+          <SelectValue placeholder="Select mode" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="view">
+            <div className="flex items-center">
+              <Eye className="w-4 h-4 mr-2" />
+              View
+            </div>
+          </SelectItem>
+          <SelectItem value="edit">
+            <div className="flex items-center">
+              <Edit className="w-4 h-4 mr-2" />
+              Edit
+            </div>
+          </SelectItem>
+          <SelectItem value="reorder">
+            <div className="flex items-center">
+              <Move className="w-4 h-4 mr-2" />
 
-    <TreeEditor
-      initialData={exampleData}
-      onChange={(data) => console.log('Structure updated:', data)}
-      actions={exampleActions}
-    />
+              Reorder
+            </div>
+          </SelectItem>
+        </SelectContent>
+      </Select>
+
+
+
+      <TreeEditor
+        initialData={exampleData}
+        mode={mode}
+        onChange={(data) => console.log('Structure updated:', data)}
+        actions={exampleActions}
+      />
+    </div>
   )
 }
