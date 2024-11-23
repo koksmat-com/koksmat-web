@@ -11,6 +11,7 @@ import Tracer from "@/app/koksmat/components/tracer";
 import { leftRailApps } from "../../components/navigation";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { ApplicationRoot } from "@/components/application-root";
+import KoksmatSession from "@/components/koksmat-session";
 export default function Layout(props: { children: any }) {
   const { children } = props;
   const magicbox = useContext(MagicboxContext);
@@ -40,7 +41,8 @@ export default function Layout(props: { children: any }) {
 
     );
   }
-  return <div>{children}</div>
+  return <div>{children}
+    <KoksmatSession /></div>
   return (
     <SidebarProvider>
       <AppProvider>

@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { CodeHighlighterComponent } from "@/components/code-highlighter"
-import { KoksmatSessionComponent } from '@/components/koksmat-session'
+import KoksmatSession from '@/components/koksmat-session'
 import KoksmatAction from '@/components/koksmat-action'
 
 interface CodeBlock {
@@ -387,9 +387,9 @@ kubectl apply -f kibana-nodeport.yaml`
 
   return (
     <div className="container mx-auto p-4 relative">
-      <div className="sticky top-0 right-0 z-10 float-right ml-4 mb-4">
-        <KoksmatSessionComponent />
-      </div>
+
+
+
 
       <h1 className="text-3xl font-bold mb-6">ELK Deployment for AKS</h1>
       <p className="mb-4">This guide will help you deploy the Elasticsearch, Logstash, and Kibana (ELK) stack on Azure Kubernetes Service (AKS).</p>

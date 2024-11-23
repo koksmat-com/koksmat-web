@@ -14,6 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { APPNAME } from '@/app/global'
+import Image from 'next/image'
 
 type SupportedLanguage = 'en' | 'da';
 
@@ -21,6 +22,8 @@ const translations: Record<SupportedLanguage, {
   search: string;
   docs: string;
   about: string;
+  herotozero: string;
+  home: string;
   blog: string;
   github: string;
   getStarted: string;
@@ -85,12 +88,14 @@ const translations: Record<SupportedLanguage, {
     blog: "Blog",
     github: "GitHub",
     getStarted: "Get Started",
+    home: "Home",
     chefInDigitalKitchen: "Your AI-Powered Digital Kitchen",
     koksmatHelps: "Koksmat is here to help you manage your digital tasks with AI-enhanced precision.",
     openSource: "100% Open Source - Cook, Customize, and Contribute with AI",
     empoweringDigitalChefs: "Empowering Digital Chefs with AI",
     fromDevAdms: "From DevAdms to citizen developers, Koksmat serves up AI-powered tools for your digital kitchen.",
     readMore: "Read More",
+    herotozero: "Hero to Zero",
     whyKoksmat: "Why Koksmat?",
     digitalDishesDeserve: "Your digital tasks deserve an AI-powered touch. Koksmat provides the open-source tools and AI-enhanced recipes you need.",
     roleSpecificRecipes: "AI-Enhanced Role-Specific Solutions",
@@ -141,7 +146,9 @@ const translations: Record<SupportedLanguage, {
     docs: "Dokumentation",
     about: "Om os",
     blog: "Blog",
+    herotozero: "Helt til nul",
     github: "GitHub",
+    home: "Hjem",
     getStarted: "Kom i gang",
     chefInDigitalKitchen: "Dit AI-drevne digitale køkken",
     koksmatHelps: "Koksmat er her for at hjælpe dig med at styre dine digitale opgaver med AI-forbedret præcision.",
@@ -218,7 +225,7 @@ function ErrorBoundary({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-export default function Component() {
+export default function LayoutHome({ children }: { children: React.ReactNode }) {
   const [activeSection, setActiveSection] = useState('')
   const [showScrollTop, setShowScrollTop] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -293,7 +300,10 @@ export default function Component() {
         <div className="sticky top-0 z-50 bg-white dark:bg-gray-800 bg-opacity-95 backdrop-blur-sm shadow-sm">
           <header className="container mx-auto px-4 py-4 flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
-              <ChefHat className="h-8 w-8 text-orange-500" />
+
+
+              <Image src="/koksmat-icon.png" alt="Koksmat" width={32} height={32} />
+
               <span className="text-xl font-bold">Koksmat</span>
             </Link>
             <div className="hidden md:flex items-center space-x-4">
@@ -306,10 +316,11 @@ export default function Component() {
                 />
               </div>
               <nav className="flex space-x-6">
+                <Link href={"/" + APPNAME + "/home/"} className="text-gray-600 hover:text-orange-500 transition-colors">{t.home}</Link>
                 <Link href={"/" + APPNAME + "/guides"} className="text-gray-600 hover:text-orange-500 transition-colors">{t.docs}</Link>
-                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors">{t.about}</Link>
-                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors">{t.blog}</Link>
-                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors">
+                {/*<Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors">{t.about}</Link> */}
+                <Link href={"/" + APPNAME + "/home/hero-to-zero"} className="text-gray-600 hover:text-orange-500 transition-colors">{t.herotozero}</Link>
+                <Link href="https://github.com/koksmat-com" target='_blank' className="text-gray-600 hover:text-orange-500 transition-colors">
                   <Github className="h-5 w-5" />
                   <span className="sr-only">{t.github}</span>
                 </Link>
@@ -367,219 +378,7 @@ export default function Component() {
             </nav>
           )}
         </div>
-        <main className="flex-grow dark:bg-gray-900 dark:text-white">
-          <section className="bg-gradient-to-b from-orange-50 to-white dark:from-gray-800 dark:to-gray-900 py-20 md:py-32">
-            <div className="container mx-auto px-4  text-center">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                {t.chefInDigitalKitchen}
-              </h1>
-              <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-                {t.koksmatHelps}
-              </p>
-              <p className="text-orange-500 dark:text-orange-400 font-semibold mb-8">
-                {t.openSource}
-              </p>
-              <div className="max-w-md mx-auto space-y-4">
-                <div className="flex items-center bg-gray-100 dark:bg-gray-700 rounded-lg p-2">
-                  <Code2 className="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2" />
-                  <code className="flex-grow text-sm">npx create-koksmat-app@latest</code>
-                  <Button size="sm" variant="ghost">
-                    <Copy className="h-4 w-4" />
-                    <span className="sr-only">Copy code</span>
-                  </Button>
-                </div>
-                <Button className="w-full py-2 px-4 bg-orange-500 dark:bg-orange-600 text-white rounded-lg hover:bg-orange-600 dark:hover:bg-orange-700 transition-colors">
-                  {t.getStarted}
-                </Button>
-              </div>
-            </div>
-          </section>
-
-          <section className="py-20 bg-white dark:bg-gray-900">
-            <div className="container mx-auto px-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">{t.welcomeToKoksmat}</h2>
-              <div className="max-w-4xl mx-auto">
-                <h3 className="text-2xl font-semibold mb-4">{t.whatIsKoksmat}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-8">{t.koksmatDescription}</p>
-
-                <h3 className="text-2xl font-semibold mb-4">{t.whyChooseKoksmat}</h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300 mb-8">
-                  <li>{t.aiEnhancedTools}</li>
-                  <li>{t.userFriendly}</li>
-                  <li>{t.customizable}</li>
-                  <li>{t.collaborative}</li>
-                  <li>{t.openSourceDesc}</li>
-                </ul>
-
-                <h3 className="text-2xl font-semibold mb-4">{t.whoCanBenefit}</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <Card className="p-6">
-                    <h4 className="text-xl font-semibold mb-2">{t.devAdminsTitle}</h4>
-                    <p className="text-gray-600 dark:text-gray-300">{t.devAdmsDesc}</p>
-                  </Card>
-                  <Card className="p-6">
-                    <h4 className="text-xl font-semibold mb-2">{t.administratorsTitle}</h4>
-                    <p className="text-gray-600 dark:text-gray-300">{t.administratorsDesc}</p>
-                  </Card>
-                  <Card className="p-6">
-                    <h4 className="text-xl font-semibold mb-2">{t.citizenDevelopersTitle}</h4>
-                    <p className="text-gray-600 dark:text-gray-300">{t.citizenDevelopersDesc}</p>
-                  </Card>
-                  <Card className="p-6">
-                    <h4 className="text-xl font-semibold mb-2">{t.teamManagersTitle}</h4>
-                    <p className="text-gray-600 dark:text-gray-300">{t.teamManagersDesc}</p>
-                  </Card>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="py-20 bg-gray-50 dark:bg-gray-800">
-            <div className="container mx-auto px-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">{t.empoweringDigitalChefs}</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <Card className="p-6 flex flex-col justify-between">
-                  <div>
-                    <Users className="h-12 w-12 text-orange-500 dark:text-orange-400 mb-4" />
-                    <h3 className="text-xl font-semibold mb-2">{t.devAdms}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">{t.devAdmsDesc}</p>
-                  </div>
-                  <button onClick={() => scrollToSection('devadms')} className="text-orange-500 dark:text-orange-400 hover:underline">{t.readMore}</button>
-                </Card>
-                <Card className="p-6 flex flex-col justify-between">
-                  <div>
-                    <Cog className="h-12 w-12 text-orange-500 dark:text-orange-400 mb-4" />
-                    <h3 className="text-xl font-semibold mb-2">{t.administrators}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">{t.administratorsDesc}</p>
-                  </div>
-                  <button onClick={() => scrollToSection('administrators')} className="text-orange-500 dark:text-orange-400 hover:underline">{t.readMore}</button>
-                </Card>
-                <Card className="p-6 flex flex-col justify-between">
-                  <div>
-                    <Wand2 className="h-12 w-12 text-orange-500 dark:text-orange-400 mb-4" />
-                    <h3 className="text-xl font-semibold mb-2">{t.citizenDevelopers}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">{t.citizenDevelopersDesc}</p>
-                  </div>
-                  <button onClick={() => scrollToSection('citizen-developers')} className="text-orange-500 dark:text-orange-400 hover:underline">{t.readMore}</button>
-                </Card>
-                <Card className="p-6 flex flex-col justify-between">
-                  <div>
-                    <Lightbulb className="h-12 w-12 text-orange-500 dark:text-orange-400 mb-4" />
-                    <h3 className="text-xl font-semibold mb-2">{t.teamManagers}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">{t.teamManagersDesc}</p>
-                  </div>
-                  <button onClick={() => scrollToSection('team-managers')} className="text-orange-500 dark:text-orange-400 hover:underline">{t.readMore}</button>
-                </Card>
-              </div>
-            </div>
-          </section>
-
-          <section className="py-20 bg-white dark:bg-gray-900">
-            <div className="container mx-auto px-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">{t.roleSpecificRecipes}</h2>
-              <div className="flex flex-col md:flex-row gap-12">
-                <nav className="md:w-1/4">
-                  <div className="sticky top-24">
-                    <h3 className="text-xl font-semibold mb-4">{t.tableOfContents}</h3>
-                    <ul className="space-y-2">
-                      {['devadms', 'administrators', 'citizen-developers', 'team-managers'].map((role) => (
-                        <li key={role}>
-                          <button
-                            onClick={() => scrollToSection(role)}
-                            className={`block w-full text-left p-2 rounded-lg transition-colors ${activeSection === role
-                              ? 'bg-orange-100 dark:bg-orange-600 text-orange-800 dark:text-white'
-                              : 'hover:bg-gray-100 dark:hover:bg-gray-700'
-                              }`}
-                          >
-                            {t[role as keyof typeof t]}
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </nav>
-                <div className="md:w-3/4 space-y-12">
-                  <div id="devadms" className="role-section bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md">
-                    <h3 className="text-2xl font-semibold mb-4">{t.devAdminsTitle}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-6">{t.devAdmsDesc}</p>
-                    <h4 className="text-xl font-semibold mb-4">Key AI-Powered Features for DevAdms:</h4>
-                    <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
-                      <li>AI-Enhanced Script Library: Store, version control, and optimize your most valuable scripts</li>
-                      <li>Intelligent Collaboration Tools: Share and collaborate on scripts with AI-powered suggestions</li>
-                      <li>Advanced AI Automation: Create complex workflows and integrations with AI assistance</li>
-                    </ul>
-                  </div>
-                  <div id="administrators" className="role-section bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md">
-                    <h3 className="text-2xl font-semibold mb-4">{t.administratorsTitle}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-6">{t.administratorsDesc}</p>
-                    <h4 className="text-xl font-semibold mb-4">Key AI-Powered Features for Administrators:</h4>
-                    <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
-                      <li>AI-Driven Resource Management: Easily manage and monitor your digital assets with predictive insights</li>
-                      <li>Intelligent Automated Workflows: Streamline repetitive tasks and processes with AI optimization</li>
-                      <li>AI-Enhanced Reporting Tools: Generate insightful reports on resource usage and performance with AI analysis</li>
-                    </ul>
-                  </div>
-                  <div id="citizen-developers" className="role-section bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md">
-                    <h3 className="text-2xl font-semibold mb-4">{t.citizenDevelopersTitle}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-6">{t.citizenDevelopersDesc}</p>
-                    <h4 className="text-xl font-semibold mb-4">Key AI-Powered Features for Citizen Developers:</h4>
-                    <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
-                      <li>AI-Assisted Low-Code Tools: Create advanced solutions with minimal coding required, guided by AI</li>
-                      <li>Intelligent Integration Recipes: Easily connect different systems and data sources with AI-suggested configurations</li>
-                      <li>AI-Powered Learning Resources: Grow your skills with our extensive documentation and AI-tailored tutorials</li>
-                    </ul>
-                  </div>
-                  <div id="team-managers" className="role-section bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md">
-                    <h3 className="text-2xl font-semibold mb-4">{t.teamManagersTitle}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-6">{t.teamManagersDesc}</p>
-                    <h4 className="text-xl font-semibold mb-4">Key AI-Powered Features for Team Managers:</h4>
-                    <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
-                      <li>AI-Enhanced Team Collaboration: Foster teamwork with AI-powered shared workspaces and project suggestions</li>
-                      <li>Intelligent Performance Metrics: Track and improve team productivity and efficiency with AI-driven insights</li>
-                      <li>AI-Optimized Resource Allocation: Optimize resource usage across your digital kitchen with AI recommendations</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="py-20 bg-orange-50 dark:bg-gray-800">
-            <div className="container mx-auto px-4 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-8">{t.openSourceOpenKitchen}</h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
-                {t.koksmatIsOpenSource}
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
-                <Button className="w-full sm:w-auto flex items-center justify-center bg-gray-800 dark:bg-gray-700 text-white hover:bg-gray-900 dark:hover:bg-gray-600 transition-colors">
-                  <Github className="mr-2 h-5 w-5" />
-                  {t.viewOnGitHub}
-                </Button>
-                <Button className="w-full sm:w-auto bg-white dark:bg-gray-600 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-500 hover:bg-gray-100 dark:hover:bg-gray-500 transition-colors">
-                  {t.joinOurCommunity}
-                </Button>
-              </div>
-            </div>
-          </section>
-
-          <section className="py-20 bg-white dark:bg-gray-900">
-            <div className="container mx-auto px-4 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-8">{t.readyToStartCooking}</h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
-                {t.getStartedWithKoksmat}
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
-                <Button className="w-full sm:w-auto bg-orange-500 dark:bg-orange-600 text-white hover:bg-orange-600 dark:hover:bg-orange-700 transition-colors">
-                  {t.getStarted}
-                  <ExternalLink className="ml-2 h-5 w-5" />
-                </Button>
-                <Button className="w-full sm:w-auto bg-white dark:bg-gray-600 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-500 hover:bg-gray-100 dark:hover:bg-gray-500 transition-colors">
-                  {t.viewDocumentation}
-                </Button>
-              </div>
-            </div>
-          </section>
-        </main>
+        {children}
 
         <footer className="bg-gray-800 dark:bg-gray-900 text-white py-8">
           <div className="container mx-auto px-4 text-center">

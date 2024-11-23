@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight, Star, GitFork } from "lucide-react"
-import LandingPage from '@/components/landing-page'
+import LandingPage from '@/components/home-page'
 
 // This would typically come from an API call or environment variables
 const repoInfo = {

@@ -14,31 +14,31 @@ const SESSION_BASE_PATH = path.join(process.cwd(), ".session");
 // Zod schemas for input validation
 const CreateSessionSchema = z.object({
   prefix: z.string().min(1),
-  correlationId: z.string(),
+  correlationId: z.string().optional(),
 });
 
 const DeleteSessionSchema = z.object({
   sessionId: z.string().min(1),
-  correlationId: z.string(),
+  correlationId: z.string().optional(),
 });
 
 const CreateFileSchema = z.object({
   sessionId: z.string().min(1),
   fileName: z.string().min(1),
   content: z.string(),
-  correlationId: z.string(),
+  correlationId: z.string().optional(),
 });
 
 const ExecuteFileSchema = z.object({
   sessionId: z.string().min(1),
   fileName: z.string().min(1),
-  correlationId: z.string(),
+  correlationId: z.string().optional(),
 });
 
 const OpenInCodeSchema = z.object({
   sessionId: z.string().min(1),
   fileName: z.string().min(1),
-  correlationId: z.string(),
+  correlationId: z.string().optional(),
 });
 
 // Types inferred from Zod schemas
@@ -53,7 +53,7 @@ type OpenInCodeInput = z.infer<typeof OpenInCodeSchema>;
  * @param correlationId Unique identifier for tracing this operation
  * @returns Array of session folder names
  */
-export async function listSessions(correlationId: string): Promise<string[]> {
+export async function listSessions(correlationId?: string): Promise<string[]> {
   try {
     koksmat.info(correlationId, "Listing all sessions");
     const sessions = await fs.readdir(SESSION_BASE_PATH);

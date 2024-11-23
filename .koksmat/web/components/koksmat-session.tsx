@@ -1,18 +1,22 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { z } from 'zod'
 import { ZeroTrust } from '@/components/zero-trust'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { createSession, deleteSession, listSessions } from './actions/session-manager'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import { ChefHat, Minimize2 } from 'lucide-react'
+import { listSessions, createSession, deleteSession } from './actions/session-manager'
 import { ComponentDoc } from './component-documentation-hub'
-
+import { KoksmatSessionProvider, useKoksmat } from './koksmat-provider'
 
 // AI-friendly component description:
 // KoksmatSession is a React component that manages session creation, deletion, and reuse.
-// It interacts with server-side functions to handle session operations and displays the current session state.
+// It only loads in the development environment and initially displays as a minimized chef's hat icon.
+// When expanded, it interacts with server-side functions to handle session operations and displays the current session state.
+// It uses the KoksmatProvider context for managing session ID and view state.
 
 const KoksmatSessionSchema = z.object({
   className: z.string().optional(),
@@ -20,68 +24,58 @@ const KoksmatSessionSchema = z.object({
 
 type KoksmatSessionProps = z.infer<typeof KoksmatSessionSchema>
 
-export function KoksmatSessionComponent({ className = '' }: KoksmatSessionProps) {
-  const [sessionId, setSessionId] = useState<string | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+export default function KoksmatSession({ className = '' }: KoksmatSessionProps) {
+  const { sessionId, setSessionId, isMinimized, setIsMinimized } = useKoksmat()
   const router = useRouter()
-  const searchParams = useSearchParams()
 
   useEffect(() => {
-    const sessionIdFromUrl = searchParams.get('koksmat-sessionid')
-    if (sessionIdFromUrl) {
-      setSessionId(sessionIdFromUrl)
-      checkSession(sessionIdFromUrl)
-    } else {
+    if (!sessionId) {
       createNewSession()
+    } else {
+      checkSession(sessionId)
     }
-  }, [searchParams])
+  }, [sessionId])
 
   const checkSession = async (id: string) => {
-    setIsLoading(true)
     try {
-      const sessions = await listSessions("")
-      if (sessions.includes(id)) {
-        setSessionId(id)
-      } else {
-        setError('Session not found')
+      const sessions = await listSessions()
+      if (!sessions.includes(id)) {
+        setSessionId(null)
       }
     } catch (err) {
-      setError('Failed to check session')
-    } finally {
-      setIsLoading(false)
+      console.error('Failed to check session:', err)
     }
   }
 
   const createNewSession = async () => {
-    setIsLoading(true)
     try {
-      const newSessionPath = await createSession({
-        prefix: 'koksmat',
-        correlationId: ''
-      })
+      const newSessionPath = await createSession({ prefix: 'koksmat' })
       const newSessionId = newSessionPath.split('/').pop() || ''
       setSessionId(newSessionId)
       router.push(`?koksmat-sessionid=${newSessionId}`)
     } catch (err) {
-      setError('Failed to create new session')
-    } finally {
-      setIsLoading(false)
+      console.error('Failed to create new session:', err)
     }
   }
 
   const handleDeleteAndRecreate = async () => {
     if (sessionId) {
       try {
-        await deleteSession({
-          sessionId,
-          correlationId: ''
-        })
+        await deleteSession({ sessionId })
         createNewSession()
       } catch (err) {
-        setError('Failed to delete and recreate session')
+        console.error('Failed to delete and recreate session:', err)
       }
     }
+  }
+
+  const toggleMinimize = () => {
+    setIsMinimized(!isMinimized)
+  }
+
+  // Only render in development environment
+  if (process.env.NODE_ENV !== 'development') {
+    return null
   }
 
   return (
@@ -92,28 +86,61 @@ export function KoksmatSessionComponent({ className = '' }: KoksmatSessionProps)
         actionLevel="error"
         componentName="KoksmatSession"
       />
-      <Card className={`w-full max-w-md ${className}`}>
-        <CardHeader>
-          <CardTitle>Koksmat Session</CardTitle>
-        </CardHeader>
-        <CardContent>
-          {isLoading ? (
-            <p>Loading session...</p>
-          ) : error ? (
-            <p className="text-red-500">{error}</p>
-          ) : (
-            <>
-              <p>Current Session ID: {sessionId}</p>
-              <div className="mt-4 space-x-2">
-                <Button onClick={() => router.push(`?koksmat-sessionid=${sessionId}`)}>
+      <div className={`fixed bottom-4 right-4 ${className}`}>
+        {isMinimized ? (
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  onClick={toggleMinimize}
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full bg-white shadow-md"
+                >
+                  <ChefHat className="h-6 w-6" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Expand Koksmat Session</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        ) : (
+          <Card className="w-80">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Koksmat Session</CardTitle>
+              <Button
+                onClick={toggleMinimize}
+                variant="ghost"
+                size="sm"
+                className="h-8 w-8 p-0"
+              >
+                <Minimize2 className="h-4 w-4" />
+              </Button>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm mb-2">Current Session ID: {sessionId || 'None'}</p>
+              <div className="flex space-x-2">
+                <Button
+                  onClick={() => router.push(`?koksmat-sessionid=${sessionId}`)}
+                  size="sm"
+                  variant="outline"
+                  disabled={!sessionId}
+                >
                   Reuse Session
                 </Button>
-                <Button onClick={handleDeleteAndRecreate}>Delete and Recreate</Button>
+                <Button
+                  onClick={handleDeleteAndRecreate}
+                  size="sm"
+                  variant="outline"
+                >
+                  Delete and Recreate
+                </Button>
               </div>
-            </>
-          )}
-        </CardContent>
-      </Card>
+            </CardContent>
+          </Card>
+        )}
+      </div>
     </>
   )
 }
@@ -122,10 +149,16 @@ export const examplesKoksmatSession: ComponentDoc[] = [
   {
     id: 'KoksmatSession',
     name: 'KoksmatSession',
-    description: 'A component for managing Koksmat sessions.',
+    description: 'A component for managing Koksmat sessions, initially minimized as a chef\'s hat icon. Only visible in development environment. Uses KoksmatProvider for state management.',
     usage: `
-      <KoksmatSession />
+      <KoksmatSessionProvider>
+        <KoksmatSession />
+      </KoksmatSessionProvider>
     `,
-    example: <KoksmatSessionComponent />,
+    example: (
+      <KoksmatSessionProvider>
+        <KoksmatSession />
+      </KoksmatSessionProvider>
+    ),
   },
 ]

@@ -6,6 +6,9 @@ import { ServiceInspector } from "@/app/koksmat/components/service-inspector";
 
 import { ToastProvider } from "@/components/ui/toast";
 import KoksmatClient from "@/components/koksmat-client";
+import { KoksmatSessionProvider } from "@/components/koksmat-provider";
+import { BreadcrumbProvider } from "@/components/breadcrumb-context";
+import { useExampleHook } from "@/components/lookup-provider";
 
 export default function RootLayoutClientSide({
   children,
@@ -16,11 +19,15 @@ export default function RootLayoutClientSide({
 
     <MagicboxProvider>
       <MSALWrapper>
-        {children}
-        <TailwindIndicator />
-        <ServiceInspector />
-        <ToastProvider />
-        <KoksmatClient />
+        <BreadcrumbProvider lookupHandlers={[useExampleHook()]}>
+          <KoksmatSessionProvider>{children}
+          </KoksmatSessionProvider>
+          <TailwindIndicator />
+
+          {/* <ServiceInspector /> */}
+          <ToastProvider />
+          <KoksmatClient />
+        </BreadcrumbProvider>
       </MSALWrapper>
     </MagicboxProvider>
 

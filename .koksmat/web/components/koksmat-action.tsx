@@ -1,20 +1,21 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { useState } from 'react'
 import { z } from 'zod'
 import { ZeroTrust } from '@/components/zero-trust'
 import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { useToast } from '@/components/ui/use-toast'
 import { Save, Play, Clipboard, Check, Code } from 'lucide-react'
 import { createFile, executeFile, openInCode } from './actions/session-manager'
 import { ComponentDoc } from './component-documentation-hub'
 import { motion } from 'framer-motion'
+import { KoksmatSessionProvider, useKoksmat } from './koksmat-provider'
 
 // AI-friendly component description:
 // KoksmatAction is a React component that provides discrete, icon-based actions for interacting with files within a Koksmat session.
-// It is session-aware, retrieving the sessionId from URL parameters.
+// It uses the KoksmatSessionProvider to access and manage the session state.
 // The component shows action icons with a light background, allowing users to copy to clipboard, save file, execute file, and open file in code editor.
 // Actions are disabled with informative tooltips when no sessionId is found.
 // After successful actions, icons animate to show a check mark and a Toast notification is shown.
@@ -42,18 +43,12 @@ export default function KoksmatAction({
   showExecuteFile,
   showOpenInCode,
 }: KoksmatActionProps) {
-  const [sessionId, setSessionId] = useState<string | null>(null)
+  const { sessionId } = useKoksmat()
   const [output, setOutput] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [isSaved, setIsSaved] = useState(false)
   const [activeIcon, setActiveIcon] = useState<'clipboard' | 'save' | 'execute' | 'openInCode' | null>(null)
-  const searchParams = useSearchParams()
   const { toast } = useToast()
-
-  useEffect(() => {
-    const sessionIdFromUrl = searchParams.get('koksmat-sessionid')
-    setSessionId(sessionIdFromUrl)
-  }, [searchParams])
 
   const handleSaveFile = async () => {
     if (!sessionId) return
@@ -101,7 +96,8 @@ export default function KoksmatAction({
 
       await executeFile(
         {
-          sessionId, fileName: executeCommand,
+          sessionId,
+          fileName: executeCommand,
           correlationId: ''
         },
         (data) => setOutput((prev) => prev + data)
@@ -291,26 +287,30 @@ export const examplesKoksmatAction: ComponentDoc[] = [
     name: 'KoksmatAction',
     description: 'A discrete component for interacting with files within a Koksmat session, showing action icons with a light background. Actions include copying to clipboard, saving file, executing file, and opening in code editor. Actions are disabled when no session is active. Successful actions show an animated check mark and a Toast notification.',
     usage: `
-      <KoksmatAction
-        fileName="example.js"
-        fileContent="console.log('Hello, Koksmat!');"
-        executeCommand="node example.js"
-        showClipboard={true}
-        showSaveFile={true}
-        showExecuteFile={true}
-        showOpenInCode={true}
-      />
+      <KoksmatSessionProvider>
+        <KoksmatAction
+          fileName="example.js"
+          fileContent="console.log('Hello, Koksmat!');"
+          executeCommand="node example.js"
+          showClipboard={true}
+          showSaveFile={true}
+          showExecuteFile={true}
+          showOpenInCode={true}
+        />
+      </KoksmatSessionProvider>
     `,
     example: (
-      <KoksmatAction
-        fileName="example.js"
-        fileContent="console.log('Hello, Koksmat!');"
-        executeCommand="node example.js"
-        showClipboard={true}
-        showSaveFile={true}
-        showExecuteFile={true}
-        showOpenInCode={true}
-      />
+      <KoksmatSessionProvider>
+        <KoksmatAction
+          fileName="example.js"
+          fileContent="console.log('Hello, Koksmat!');"
+          executeCommand="node example.js"
+          showClipboard={true}
+          showSaveFile={true}
+          showExecuteFile={true}
+          showOpenInCode={true}
+        />
+      </KoksmatSessionProvider>
     ),
   },
 ]
