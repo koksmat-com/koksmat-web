@@ -111,7 +111,7 @@ const translations: Record<SupportedLanguage, {
     whatIsKoksmat: "What is Koksmat?",
     koksmatDescription: "In a world increasingly driven by Artificial Intelligence, Koksmat is a 100% open-source platform built using AI technologies. It's designed to help you harness the power of AI in your daily digital tasks, acting as your personal assistant in the digital kitchen to help you &quote;cook up&quote; solutions more efficiently and effectively.",
     whyChooseKoksmat: "Why Choose Koksmat?",
-    aiEnhancedTools: "AI-Enhanced Tools: Leverage AI to simplify complex tasks and boost productivity.",
+    aiEnhancedTools: "AI-Enhanced Signage: Leverage AI to simplify complex tasks and boost productivity.",
     userFriendly: "User-Friendly: Easy to navigate, whether you're a tech guru or just starting out.",
     customizable: "Customizable: Adapt the platform to meet your specific needs and workflows.",
     collaborative: "Collaborative: Share ideas and work seamlessly with your team.",
@@ -388,7 +388,7 @@ export default function HomePage() {
                 <h4 className="text-xl font-semibold mb-4">Key AI-Powered Features for DevAdms:</h4>
                 <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
                   <li>AI-Enhanced Script Library: Store, version control, and optimize your most valuable scripts</li>
-                  <li>Intelligent Collaboration Tools: Share and collaborate on scripts with AI-powered suggestions</li>
+                  <li>Intelligent Collaboration Signage: Share and collaborate on scripts with AI-powered suggestions</li>
                   <li>Advanced AI Automation: Create complex workflows and integrations with AI assistance</li>
                 </ul>
               </div>
@@ -399,7 +399,7 @@ export default function HomePage() {
                 <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
                   <li>AI-Driven Resource Management: Easily manage and monitor your digital assets with predictive insights</li>
                   <li>Intelligent Automated Workflows: Streamline repetitive tasks and processes with AI optimization</li>
-                  <li>AI-Enhanced Reporting Tools: Generate insightful reports on resource usage and performance with AI analysis</li>
+                  <li>AI-Enhanced Reporting Signage: Generate insightful reports on resource usage and performance with AI analysis</li>
                 </ul>
               </div>
               <div id="citizen-developers" className="role-section bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md">
@@ -407,7 +407,7 @@ export default function HomePage() {
                 <p className="text-gray-600 dark:text-gray-300 mb-6">{t.citizenDevelopersDesc}</p>
                 <h4 className="text-xl font-semibold mb-4">Key AI-Powered Features for Citizen Developers:</h4>
                 <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
-                  <li>AI-Assisted Low-Code Tools: Create advanced solutions with minimal coding required, guided by AI</li>
+                  <li>AI-Assisted Low-Code Signage: Create advanced solutions with minimal coding required, guided by AI</li>
                   <li>Intelligent Integration Recipes: Easily connect different systems and data sources with AI-suggested configurations</li>
                   <li>AI-Powered Learning Resources: Grow your skills with our extensive documentation and AI-tailored tutorials</li>
                 </ul>

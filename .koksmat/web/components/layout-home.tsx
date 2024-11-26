@@ -124,7 +124,7 @@ const translations: Record<SupportedLanguage, {
     whatIsKoksmat: "What is Koksmat?",
     koksmatDescription: "In a world increasingly driven by Artificial Intelligence, Koksmat is a 100% open-source platform built using AI technologies. It's designed to help you harness the power of AI in your daily digital tasks, acting as your personal assistant in the digital kitchen to help you &quote;cook up&quote; solutions more efficiently and effectively.",
     whyChooseKoksmat: "Why Choose Koksmat?",
-    aiEnhancedTools: "AI-Enhanced Tools: Leverage AI to simplify complex tasks and boost productivity.",
+    aiEnhancedTools: "AI-Enhanced Signage: Leverage AI to simplify complex tasks and boost productivity.",
     userFriendly: "User-Friendly: Easy to navigate, whether you're a tech guru or just starting out.",
     customizable: "Customizable: Adapt the platform to meet your specific needs and workflows.",
     collaborative: "Collaborative: Share ideas and work seamlessly with your team.",
