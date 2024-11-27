@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { z } from 'zod'
 import { ZeroTrust } from '@/components/zero-trust'
 import { Button } from '@/components/ui/button'
@@ -10,7 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { Clock, Cloud, Code, Database, Lock, Sparkles, Users, User, Github, Calendar } from 'lucide-react'
+import { Clock, Cloud, Code, Database, Lock, Sparkles, Users, User, Github, Calendar, Moon, Sun } from 'lucide-react'
 import { ComponentDoc } from './component-documentation-hub'
 
 const KoksmatWelcomeSchema = z.object({})
@@ -18,6 +18,18 @@ const KoksmatWelcomeSchema = z.object({})
 type KoksmatWelcomeProps = z.infer<typeof KoksmatWelcomeSchema>
 
 const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
+  const [darkMode, setDarkMode] = useState(false)
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  }, [darkMode])
+
+  const toggleDarkMode = () => setDarkMode(!darkMode)
+
   return (
     <>
       <ZeroTrust
@@ -26,9 +38,84 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
         actionLevel="error"
         componentName="KoksmatWelcome"
       />
-      <div className="min-h-screen">
+      <button
+        onClick={toggleDarkMode}
+        className="fixed top-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
+        aria-label="Toggle dark mode"
+      >
+        {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+      </button>
+      <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+
+        {/* Magic Button Teaser */}
+        {/* <section className="py-16 bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-blue-900">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold mb-8 text-center text-blue-600 dark:text-blue-300">Introducing the Magic Button</h2>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+              <div className="md:w-1/2">
+                <img
+                  src="/placeholder.svg?height=300&width=400"
+                  alt="Magic Button Concept"
+                  className="rounded-lg shadow-lg"
+                />
+              </div>
+              <div className="md:w-1/2 space-y-4">
+                <p className="text-lg text-gray-700 dark:text-gray-300">
+                  Imagine having a Magic Button that provides instant solutions or allows you to request them in any context within your favorite office productivity apps like Outlook, Word, Excel, PowerPoint, Teams, and SharePoint.
+                </p>
+                <p className="text-lg text-gray-700 dark:text-gray-300">
+                  Koksmat is dedicated to supporting you in building these solutions and fostering collaboration, with a special focus on harnessing neuro-power.
+                </p>
+                <p className="text-lg font-semibold text-blue-600 dark:text-blue-400">
+                  Coming in 2025: Your personal AI assistant, seamlessly integrated into your workflow.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section> */}
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-b from-blue-50 to-white py-20">
+        <section className="h-screen relative bg-gradient-to-b from-blue-50 to-white dark:from-blue-900 dark:to-gray-900 py-20">
+          <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center">
+            <div className="lg:w-1/2 lg:pr-12">
+              <h1 className="text-5xl font-bold leading-tight mb-8">
+                <div>Imagine having a Magic Button that provides instant solutions</div>
+
+              </h1>
+              <div className=" space-y-4">
+                <p className="text-lg text-gray-700 dark:text-gray-300">
+                  Imagine having a Magic Button that provides instant solutions or allows you to request them in any context within your favorite office productivity apps like Outlook, Word, Excel, PowerPoint, Teams, and SharePoint.
+                </p>
+                <p className="text-lg text-gray-700 dark:text-gray-300">
+                  Koksmat is dedicated to supporting you in building these solutions and fostering collaboration, with a special focus on harnessing neuro-power.
+                </p>
+
+              </div>
+
+              <div className="flex gap-4 max-w-md mt-5">
+                <Button className="flex-grow">
+
+                  Learn more
+                </Button>
+              </div>
+            </div>
+            <div className="lg:w-1/2 mt-12 lg:mt-0">
+              <div className="relative mx-auto w-full max-w-md">
+                <div className="rounded-3xl overflow-hidden shadow-2xl">
+                  <img
+                    src="/placeholder.svg?height=600&width=300"
+                    alt="Koksmat Dashboard Preview"
+                    className="w-full"
+                  />
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Hero Section */}
+        <section className="relative bg-gradient-to-b from-blue-50 to-white dark:from-blue-900 dark:to-gray-900 py-20">
           <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center">
             <div className="lg:w-1/2 lg:pr-12">
               <h1 className="text-5xl font-bold leading-tight mb-8">
@@ -36,12 +123,12 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
                 <div>Built for Cloud Native.</div>
                 <div>Powered by Community.</div>
               </h1>
-              <p className="text-xl text-gray-600 mb-4">
+              <p className="text-xl text-gray-600 mb-4 dark:text-gray-400">
                 Join the Koksmat open-source revolution - shaping the future of secure, cloud-native development together.
               </p>
-              <p className="text-2xl font-semibold text-blue-600 mb-8">
+              {/* <p className="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-8">
                 Coming in 2025
-              </p>
+              </p> */}
               <div className="flex gap-4 max-w-md">
                 <Button className="flex-grow">
                   <Github className="w-5 h-5 mr-2" />
@@ -53,34 +140,34 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
               <div className="relative mx-auto w-full max-w-md">
                 <div className="rounded-3xl border-8 border-black overflow-hidden shadow-2xl">
                   <img
-                    src="/placeholder.svg?height=600&width=300"
+                    src="/koksmat-icon.png?height=600&width=300"
                     alt="Koksmat Dashboard Preview"
                     className="w-full"
                   />
                 </div>
-                <div className="absolute top-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-full font-semibold">
+                {/* <div className="absolute top-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-full font-semibold">
                   <Calendar className="inline-block w-5 h-5 mr-2" />
                   2025 Release
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
         </section>
 
         {/* What is Koksmat */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white dark:bg-gray-800">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8">What is Koksmat</h2>
-            <p className="text-lg text-gray-600 max-w-3xl">
+            <h2 className="text-3xl font-bold mb-8 dark:text-gray-200">What is Koksmat</h2>
+            <p className="text-lg text-gray-600 max-w-3xl dark:text-gray-400">
               Koksmat is an innovative open-source platform designed for the future of cloud-native development, set to launch in 2025. Built with Zero Trust principles at its core, Koksmat will empower developers and teams to create secure, scalable, and efficient solutions. It&apos;s not just a tool - it&apos;s a community-driven gateway to the next generation of software development.
             </p>
           </div>
         </section>
 
         {/* Why choose Koksmat */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-12 text-center">Why Choose Koksmat in 2025</h2>
+            <h2 className="text-3xl font-bold mb-12 text-center dark:text-gray-200">Why Choose Koksmat in 2025</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <FeatureCard
                 icon={<Lock className="w-8 h-8" />}
@@ -122,9 +209,9 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
             <h2 className="text-3xl font-bold mb-4 text-center">Join the Koksmat Community</h2>
             <p className="text-xl mb-12 text-center">Be part of the revolution starting 2025</p>
             <div className="grid md:grid-cols-2 gap-12">
-              <div className="bg-white text-gray-800 p-8 rounded-lg shadow-lg">
-                <Users className="w-12 h-12 text-blue-600 mb-4" />
-                <h3 className="text-2xl font-semibold mb-4">For Teams</h3>
+              <div className="bg-white text-gray-800 p-8 rounded-lg shadow-lg dark:bg-gray-800 dark:text-gray-200">
+                <Users className="w-12 h-12 text-blue-600 mb-4 dark:text-blue-400" />
+                <h3 className="text-2xl font-semibold mb-4 dark:text-gray-200">For Teams</h3>
                 <ul className="space-y-3">
                   <li>• Collaborate on secure, scalable projects</li>
                   <li>• Leverage community-driven innovations</li>
@@ -136,9 +223,9 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
                   Fork on GitHub
                 </Button>
               </div>
-              <div className="bg-white text-gray-800 p-8 rounded-lg shadow-lg">
-                <User className="w-12 h-12 text-blue-600 mb-4" />
-                <h3 className="text-2xl font-semibold mb-4">For Individual Developers</h3>
+              <div className="bg-white text-gray-800 p-8 rounded-lg shadow-lg dark:bg-gray-800 dark:text-gray-200">
+                <User className="w-12 h-12 text-blue-600 mb-4 dark:text-blue-400" />
+                <h3 className="text-2xl font-semibold mb-4 dark:text-gray-200">For Individual Developers</h3>
                 <ul className="space-y-3">
                   <li>• Learn from a global community of experts</li>
                   <li>• Showcase your skills through contributions</li>
@@ -155,15 +242,15 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
         </section>
 
         {/* How to Contribute */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-4 text-center">How to Contribute to Koksmat</h2>
-              <p className="text-xl mb-12 text-center">Help shape the future of cloud-native development for 2025 and beyond</p>
+              <h2 className="text-3xl font-bold mb-4 text-center dark:text-gray-200">How to Contribute to Koksmat</h2>
+              <p className="text-xl mb-12 text-center dark:text-gray-400">Help shape the future of cloud-native development for 2025 and beyond</p>
               <div className="grid md:grid-cols-2 gap-12">
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">Ways to Contribute</h3>
-                  <ul className="space-y-3 text-gray-600">
+                  <h3 className="text-xl font-semibold mb-4 dark:text-gray-200">Ways to Contribute</h3>
+                  <ul className="space-y-3 text-gray-600 dark:text-gray-400">
                     <li>• Submit pull requests for new features</li>
                     <li>• Report and fix bugs in early versions</li>
                     <li>• Improve documentation for the 2025 release</li>
@@ -172,8 +259,8 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">Getting Started</h3>
-                  <ul className="space-y-3 text-gray-600">
+                  <h3 className="text-xl font-semibold mb-4 dark:text-gray-200">Getting Started</h3>
+                  <ul className="space-y-3 text-gray-600 dark:text-gray-400">
                     <li>1. Fork the Koksmat repository</li>
                     <li>2. Set up your local development environment</li>
                     <li>3. Choose an issue to work on from the 2025 roadmap</li>
@@ -187,9 +274,9 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
         </section>
 
         {/* FAQ */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white dark:bg-gray-800">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold mb-12 text-center dark:text-gray-200">Frequently Asked Questions</h2>
             <div className="max-w-3xl mx-auto">
               <Accordion type="single" collapsible>
                 <AccordionItem value="item-1">
@@ -276,10 +363,10 @@ interface FeatureCardProps {
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) => {
   return (
-    <div className="p-6 bg-white rounded-lg shadow-sm border border-gray-100">
-      <div className="mb-4 text-blue-600">{icon}</div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+    <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
+      <div className="mb-4 text-blue-600 dark:text-blue-400">{icon}</div>
+      <h3 className="text-xl font-semibold mb-2 dark:text-gray-200">{title}</h3>
+      <p className="text-gray-600 dark:text-gray-400">{description}</p>
     </div>
   )
 }
