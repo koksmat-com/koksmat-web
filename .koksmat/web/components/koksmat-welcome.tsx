@@ -11,6 +11,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { Clock, Cloud, Code, Database, Lock, Sparkles, Users, User, Github, Calendar } from 'lucide-react'
+import { ComponentDoc } from './component-documentation-hub'
 
 const KoksmatWelcomeSchema = z.object({})
 
@@ -51,7 +52,7 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
             <div className="lg:w-1/2 mt-12 lg:mt-0">
               <div className="relative mx-auto w-full max-w-md">
                 <div className="rounded-3xl border-8 border-black overflow-hidden shadow-2xl">
-                  <img 
+                  <img
                     src="/placeholder.svg?height=600&width=300"
                     alt="Koksmat Dashboard Preview"
                     className="w-full"
@@ -71,7 +72,7 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-8">What is Koksmat</h2>
             <p className="text-lg text-gray-600 max-w-3xl">
-              Koksmat is an innovative open-source platform designed for the future of cloud-native development, set to launch in 2025. Built with Zero Trust principles at its core, Koksmat will empower developers and teams to create secure, scalable, and efficient solutions. It's not just a tool - it's a community-driven gateway to the next generation of software development.
+              Koksmat is an innovative open-source platform designed for the future of cloud-native development, set to launch in 2025. Built with Zero Trust principles at its core, Koksmat will empower developers and teams to create secure, scalable, and efficient solutions. It&apos;s not just a tool - it&apos;s a community-driven gateway to the next generation of software development.
             </p>
           </div>
         </section>
@@ -206,13 +207,13 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
                 <AccordionItem value="item-3">
                   <AccordionTrigger>How will Koksmat ensure security in cloud-native applications?</AccordionTrigger>
                   <AccordionContent>
-                    Koksmat will implement Zero Trust principles throughout the platform. This means every request will be authenticated and authorized, regardless of where it originates. We're also developing built-in security features and best practices to help developers create secure applications by default.
+                    Koksmat will implement Zero Trust principles throughout the platform. This means every request will be authenticated and authorized, regardless of where it originates. We&apos;re also developing built-in security features and best practices to help developers create secure applications by default.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-4">
-                  <AccordionTrigger>What's the roadmap for Koksmat leading up to 2025?</AccordionTrigger>
+                  <AccordionTrigger>What&apos;s the roadmap for Koksmat leading up to 2025?</AccordionTrigger>
                   <AccordionContent>
-                    Our roadmap is community-driven and evolves based on user needs and contributions. We're focusing on core features like Zero Trust implementation, cloud-native optimizations, and developer experience enhancements. You can view and contribute to our roadmap on our GitHub repository.
+                    Our roadmap is community-driven and evolves based on user needs and contributions. We&apos;re focusing on core features like Zero Trust implementation, cloud-native optimizations, and developer experience enhancements. You can view and contribute to our roadmap on our GitHub repository.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
