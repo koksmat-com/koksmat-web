@@ -83,7 +83,7 @@ const translations: Record<SupportedLanguage, {
 }> = {
   en: {
     search: "Search...",
-    docs: "Docs",
+    docs: "Life Time Cost",
     about: "About",
     blog: "Blog",
     github: "GitHub",
@@ -317,7 +317,7 @@ export default function LayoutHome({ children }: { children: React.ReactNode }) 
               </div>
               <nav className="flex space-x-6">
                 <Link href={"/" + APPNAME + "/home/"} className="text-gray-600 hover:text-orange-500 transition-colors">{t.home}</Link>
-                <Link href={"/" + APPNAME + "/guides"} className="text-gray-600 hover:text-orange-500 transition-colors">{t.docs}</Link>
+                <Link href={"/" + APPNAME + "/home/cost"} className="text-gray-600 hover:text-orange-500 transition-colors">{t.docs}</Link>
                 {/*<Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors">{t.about}</Link> */}
                 <Link href={"/" + APPNAME + "/home/hero-to-zero"} className="text-gray-600 hover:text-orange-500 transition-colors">{t.herotozero}</Link>
                 <Link href="https://github.com/koksmat-com" target='_blank' className="text-gray-600 hover:text-orange-500 transition-colors">
