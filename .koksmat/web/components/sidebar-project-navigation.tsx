@@ -234,8 +234,7 @@ export default function ProjectStructure({
             <TreeEditor
               initialData={activeData}
               onChange={handleChange}
-              actions={projectActions}
-            />
+              actions={projectActions} mode={'view'} />
           </TabsContent>
 
           <TabsContent value="preview" className="mt-0">

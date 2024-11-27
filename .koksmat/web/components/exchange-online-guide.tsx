@@ -12,9 +12,9 @@ const ExchangeOnlineGuide: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6">Exchange Online PowerShell Scripts</h1>
-      <RecoveringMailboxSection title={'Recover'} children={undefined} />
-      <ExportFutureInvitationsSection title={'Find'} children={undefined} />
-      <SendCancellationsSection title={'Cancel'} children={undefined} />
+      <RecoveringMailboxSection title={'Recover'} ><div /></RecoveringMailboxSection>
+      <ExportFutureInvitationsSection title={'Find'}><div /></ExportFutureInvitationsSection>
+      <SendCancellationsSection title={'Cancel'}><div /></SendCancellationsSection>
     </div>
   );
 };
@@ -24,7 +24,7 @@ const RecoveringMailboxSection: React.FC<Section> = () => {
     <section className="mb-8">
       <h2 className="text-2xl font-semibold mb-4">1. Recovering a Mailbox</h2>
       <p className="mb-4">
-        To recover a deleted mailbox on Exchange Online, use the `Restore-Mailbox` command after connecting to Exchange Online. Here's a sample script:
+        To recover a deleted mailbox on Exchange Online, use the &lsquo;Restore-Mailbox&lsquo; command after connecting to Exchange Online. Here&apos;s a sample script:
       </p>
       <CodeHighlighterComponent
         language="powershell"

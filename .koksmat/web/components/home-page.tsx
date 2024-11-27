@@ -87,7 +87,7 @@ const translations: Record<SupportedLanguage, {
     digitalDishesDeserve: "Your digital tasks deserve an Neuro-powered touch. Koksmat provides the open-source tools and Neuro-enhanced recipes you need.",
     roleSpecificRecipes: "AI-Enhanced Role-Specific Solutions",
     contents: "Contents",
-    openSourceOpenKitchen: "Open Source, AI-Powered Kitchen",
+    openSourceOpenKitchen: "Open Source, Neuro-Powered Kitchen",
     koksmatIsOpenSource: "Koksmat is 100% open-source and AI-powered. Customize your tools, contribute your own AI-enhanced recipes, and join our community of digital chefs.",
     viewOnGitHub: "View on GitHub",
     joinOurCommunity: "Join Our Community",
@@ -107,7 +107,7 @@ const translations: Record<SupportedLanguage, {
     teamManagers: "Team Managers",
     teamManagersDesc: "Boost team efficiency with AI insights",
     tableOfContents: "Table of Contents",
-    welcomeToKoksmat: "Welcome to Koksmat—Your Gateway to AI-Powered Productivity",
+    welcomeToKoksmat: "Welcome to Koksmat—Your Gateway to Neuro-Powered Productivity",
     whatIsKoksmat: "What is Koksmat?",
     koksmatDescription: "In a world increasingly driven by Artificial Intelligence, Koksmat is a 100% open-source platform built using AI technologies. It's designed to help you harness the power of AI in your daily digital tasks, acting as your personal assistant in the digital kitchen to help you &quote;cook up&quote; solutions more efficiently and effectively.",
     whyChooseKoksmat: "Why Choose Koksmat?",
@@ -385,7 +385,7 @@ export default function HomePage() {
               <div id="devadms" className="role-section bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md">
                 <h3 className="text-2xl font-semibold mb-4">{t.devAdminsTitle}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-6">{t.devAdmsDesc}</p>
-                <h4 className="text-xl font-semibold mb-4">Key AI-Powered Features for DevAdms:</h4>
+                <h4 className="text-xl font-semibold mb-4">Key Neuro-Powered Features for DevAdms:</h4>
                 <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
                   <li>AI-Enhanced Script Library: Store, version control, and optimize your most valuable scripts</li>
                   <li>Intelligent Collaboration Signage: Share and collaborate on scripts with AI-powered suggestions</li>
@@ -395,7 +395,7 @@ export default function HomePage() {
               <div id="administrators" className="role-section bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md">
                 <h3 className="text-2xl font-semibold mb-4">{t.administratorsTitle}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-6">{t.administratorsDesc}</p>
-                <h4 className="text-xl font-semibold mb-4">Key AI-Powered Features for Administrators:</h4>
+                <h4 className="text-xl font-semibold mb-4">Key Neuro-Powered Features for Administrators:</h4>
                 <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
                   <li>AI-Driven Resource Management: Easily manage and monitor your digital assets with predictive insights</li>
                   <li>Intelligent Automated Workflows: Streamline repetitive tasks and processes with AI optimization</li>
@@ -405,17 +405,17 @@ export default function HomePage() {
               <div id="citizen-developers" className="role-section bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md">
                 <h3 className="text-2xl font-semibold mb-4">{t.citizenDevelopersTitle}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-6">{t.citizenDevelopersDesc}</p>
-                <h4 className="text-xl font-semibold mb-4">Key AI-Powered Features for Citizen Developers:</h4>
+                <h4 className="text-xl font-semibold mb-4">Key Neuro-Powered Features for Citizen Developers:</h4>
                 <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
                   <li>AI-Assisted Low-Code Signage: Create advanced solutions with minimal coding required, guided by AI</li>
                   <li>Intelligent Integration Recipes: Easily connect different systems and data sources with AI-suggested configurations</li>
-                  <li>AI-Powered Learning Resources: Grow your skills with our extensive documentation and AI-tailored tutorials</li>
+                  <li>Neuro-Powered Learning Resources: Grow your skills with our extensive documentation and AI-tailored tutorials</li>
                 </ul>
               </div>
               <div id="team-managers" className="role-section bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md">
                 <h3 className="text-2xl font-semibold mb-4">{t.teamManagersTitle}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-6">{t.teamManagersDesc}</p>
-                <h4 className="text-xl font-semibold mb-4">Key AI-Powered Features for Team Managers:</h4>
+                <h4 className="text-xl font-semibold mb-4">Key Neuro-Powered Features for Team Managers:</h4>
                 <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
                   <li>AI-Enhanced Team Collaboration: Foster teamwork with AI-powered shared workspaces and project suggestions</li>
                   <li>Intelligent Performance Metrics: Track and improve team productivity and efficiency with AI-driven insights</li>

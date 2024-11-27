@@ -128,8 +128,7 @@ export default function SidebarApplicationDesigner({
             <TreeEditor
               initialData={activeData}
               onChange={handleChange}
-              actions={navigationActions}
-            />
+              actions={navigationActions} mode={'view'} />
           </TabsContent>
 
           <TabsContent value="preview" className="mt-0">
