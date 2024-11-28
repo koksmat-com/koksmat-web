@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/accordion'
 import { Clock, Cloud, Code, Database, Lock, Sparkles, Users, User, Github, Calendar, Moon, Sun } from 'lucide-react'
 import { ComponentDoc } from './component-documentation-hub'
+import MagicExcelTransform from './magic-excel-transform'
 
 const KoksmatWelcomeSchema = z.object({})
 
@@ -79,15 +80,18 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
           <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center">
             <div className="lg:w-1/2 lg:pr-12">
               <h1 className="text-5xl font-bold leading-tight mb-8">
-                <div>Imagine having a Magic Button that provides instant solutions</div>
+                <div>Transform Your Spreadsheets into Secure, Actionable Magic Buttons</div>
 
               </h1>
+              <h2 className="text-xl font-bold leading-tight mb-4">
+                Convert business-critical spreadsheets into zero-trust microservices, seamlessly integrated into Office apps and beyond.
+              </h2>
               <div className=" space-y-4">
-                <p className="text-lg text-gray-700 dark:text-gray-300">
+                {/* <p className="text-lg text-gray-700 dark:text-gray-300">
                   Imagine having a Magic Button that provides instant solutions or allows you to request them in any context within your favorite office productivity apps like Outlook, Word, Excel, PowerPoint, Teams, and SharePoint.
-                </p>
+                </p> */}
                 <p className="text-lg text-gray-700 dark:text-gray-300">
-                  Koksmat is dedicated to supporting you in building these solutions and fostering collaboration, with a special focus on harnessing neuro-power.
+                  Imagine turning your most important spreadsheet into a secure, zero-trust microservice. With Koksmat, this transformation empowers you to create child Magic Buttons that integrate effortlessly into your favorite productivity tools like Outlook, Word, Excel, Teams, and SharePoint—or any browser-based app. Koksmat helps you build and deploy these solutions, enhancing collaboration and unleashing the full potential of your workflows.
                 </p>
 
               </div>
@@ -102,11 +106,12 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
             <div className="lg:w-1/2 mt-12 lg:mt-0">
               <div className="relative mx-auto w-full max-w-md">
                 <div className="rounded-3xl overflow-hidden shadow-2xl">
-                  <img
+                  {/* <img
                     src="/placeholder.svg?height=600&width=300"
                     alt="Koksmat Dashboard Preview"
                     className="w-full"
-                  />
+                  /> */}
+                  <MagicExcelTransform />
                 </div>
 
               </div>
@@ -140,7 +145,7 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
               <div className="relative mx-auto w-full max-w-md">
                 <div className="rounded-3xl border-8 border-black overflow-hidden shadow-2xl">
                   <img
-                    src="/koksmat-icon.png?height=600&width=300"
+                    src="/chef-logo.svg"
                     alt="Koksmat Dashboard Preview"
                     className="w-full"
                   />

@@ -305,15 +305,18 @@ export default function LayoutHome({ children }: { children: React.ReactNode }) 
               <Image src="/koksmat-icon.png" alt="Koksmat" width={32} height={32} />
 
               <span className="text-xl font-bold">Koksmat</span>
+              <div className='text-yellow-500'>Preview</div>
             </Link>
             <div className="hidden md:flex items-center space-x-4">
               <div className="relative">
-                <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                {/* <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                 <Input
                   type="search"
                   placeholder={t.search}
                   className="pl-8 pr-4 py-2 w-64 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
-                />
+                /> */}
+
+
               </div>
               <nav className="flex space-x-6">
                 <Link href={"/" + APPNAME + "/home/"} className="text-gray-600 hover:text-orange-500 transition-colors">{t.home}</Link>

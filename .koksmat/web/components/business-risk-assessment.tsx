@@ -28,7 +28,7 @@ export default function BusinessRiskAssessment() {
                 Critical business data and processes are at risk when key personnel depart or face unexpected absences.
               </AlertDescription>
             </Alert>
-            
+
             <div className="grid md:grid-cols-2 gap-4">
               <Card>
                 <CardHeader>
@@ -38,17 +38,17 @@ export default function BusinessRiskAssessment() {
                   <p>Business-critical spreadsheets often become single points of failure. When key resources retire or are suddenly unavailable, years of accumulated knowledge and complex processes can vanish, leaving operations vulnerable.</p>
                 </CardContent>
               </Card>
-              
+
               <Card>
                 <CardHeader>
                   <CardTitle className="text-xl">The Rise of Citizen Development</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p>As citizen development evolves, we're seeing the emergence of &quot;Excel files on steroids&quot; - powerful tools created by non-IT professionals that drive crucial business processes.</p>
+                  <p>As citizen development evolves, we&apos;re seeing the emergence of &quot;Excel files on steroids&quot; - powerful tools created by non-IT professionals that drive crucial business processes.</p>
                 </CardContent>
               </Card>
             </div>
-            
+
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -66,7 +66,7 @@ export default function BusinessRiskAssessment() {
                 </CardContent>
               </Card>
             </motion.div>
-            
+
             <div className="flex justify-between items-center">
               <div className="flex items-center space-x-2">
                 <Users className="h-5 w-5" />
@@ -77,7 +77,7 @@ export default function BusinessRiskAssessment() {
                 <span>Drive innovation safely</span>
               </div>
             </div>
-            
+
             <Button className="w-full">
               Learn More About Mitigating Spreadsheet Risks
               <ArrowRight className="ml-2 h-4 w-4" />
