@@ -341,7 +341,7 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
                 <ul className="space-y-2">
                   <li><a href="#" className="hover:text-white">GitHub Discussions</a></li>
                   <li><a href="#" className="hover:text-white">Discord</a></li>
-                  <li><a href="#" className="hover:text-white">Twitter</a></li>
+                  <li><a href="https://bsky.app/profile/koksmat.bsky.social" target='_blank' className="hover:text-white">Bluesky</a></li>
                 </ul>
               </div>
             </div>

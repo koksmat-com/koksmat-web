@@ -2,16 +2,17 @@ import FromHeroToZero from '@/components/hero-to-zero'
 import React from 'react'
 import type { Metadata } from "next";
 import { DynamicSolutionCoverageCostComparison } from '@/components/dynamic-solution-coverage-cost-comparison';
+import BusinessRiskAssessment from '@/components/business-risk-assessment';
 
 export const metadata: Metadata = {
-  title: "From Hero To Zero",
-  description: "Welcome to the Nexi Digital Workspace story—a journey to revolutionize productivity and workflow management. At 61, Niels transitioned from a Microsoft 365 expert to embracing the challenges of the Cloud-Native ecosystem. Diagnosed with autism and ADHD, this shift reflects the power of neurodiversity in driving innovation.",
+  title: "The Hidden Dangers of Business-Critical Spreadsheets",
+  description: "Business-critical spreadsheets often become single points of failure. When key resources retire or are suddenly unavailable, years of accumulated knowledge and complex processes can vanish, leaving operations vulnerable.",
 
 };
 export default function Page() {
   return (
     <div className='container content-center '>
-
+      <BusinessRiskAssessment />
       <DynamicSolutionCoverageCostComparison />
     </div>)
 }

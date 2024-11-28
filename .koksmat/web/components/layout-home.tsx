@@ -83,7 +83,7 @@ const translations: Record<SupportedLanguage, {
 }> = {
   en: {
     search: "Search...",
-    docs: "Life Time Cost",
+    docs: "Why",
     about: "About",
     blog: "Blog",
     github: "GitHub",
@@ -95,7 +95,7 @@ const translations: Record<SupportedLanguage, {
     empoweringDigitalChefs: "Empowering Digital Chefs with AI",
     fromDevAdms: "From DevAdms to citizen developers, Koksmat serves up AI-powered tools for your digital kitchen.",
     readMore: "Read More",
-    herotozero: "Hero to Zero",
+    herotozero: "How",
     whyKoksmat: "Why Koksmat?",
     digitalDishesDeserve: "Your digital tasks deserve an AI-powered touch. Koksmat provides the open-source tools and AI-enhanced recipes you need.",
     roleSpecificRecipes: "AI-Enhanced Role-Specific Solutions",
@@ -146,7 +146,7 @@ const translations: Record<SupportedLanguage, {
     docs: "Dokumentation",
     about: "Om os",
     blog: "Blog",
-    herotozero: "Helt til nul",
+    herotozero: "Hvordan",
     github: "GitHub",
     home: "Hjem",
     getStarted: "Kom i gang",
