@@ -1,0 +1,1 @@
+kubectl apply -f $PSScriptRoot/nats-and-node-deployment.yaml 

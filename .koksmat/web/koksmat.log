@@ -1,0 +1,84 @@
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:37:16.356Z","correlationId":"koksmat-log-1733132236356","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:37:16.365Z","correlationId":"koksmat-log-1733132236365","level":"INFO","message":"Created new session: koksmat_20241202T093716"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:37:16.376Z","correlationId":"Listing all sessions","level":"INFO","message":""}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:37:16.377Z","correlationId":"koksmat-log-1733132236377","level":"INFO","message":"Listed 74 sessions"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:41:16.198Z","correlationId":"koksmat-log-1733132476198","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:41:16.198Z","correlationId":"koksmat-log-1733132476198","level":"INFO","message":"Created new session: koksmat_20241202T094116"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:41:16.283Z","correlationId":"Listing all sessions","level":"INFO","message":""}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:41:16.283Z","correlationId":"koksmat-log-1733132476283","level":"INFO","message":"Listed 75 sessions"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:42:43.913Z","correlationId":"koksmat-log-1733132563912","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:42:43.913Z","correlationId":"koksmat-log-1733132563913","level":"INFO","message":"Created new session: koksmat_20241202T094243"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:42:43.932Z","correlationId":"koksmat-log-1733132563932","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:42:43.932Z","correlationId":"koksmat-log-1733132563932","level":"INFO","message":"Created new session: koksmat_20241202T094243"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:42:43.949Z","correlationId":"Listing all sessions","level":"INFO","message":""}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:42:43.950Z","correlationId":"koksmat-log-1733132563950","level":"INFO","message":"Listed 76 sessions"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:44:18.069Z","correlationId":"koksmat-log-1733132658069","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:44:18.069Z","correlationId":"koksmat-log-1733132658069","level":"INFO","message":"Created new session: koksmat_20241202T094418"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:44:18.120Z","correlationId":"koksmat-log-1733132658120","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:44:18.125Z","correlationId":"koksmat-log-1733132658125","level":"INFO","message":"Created new session: koksmat_20241202T094418"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:44:18.144Z","correlationId":"Listing all sessions","level":"INFO","message":""}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:44:18.155Z","correlationId":"koksmat-log-1733132658155","level":"INFO","message":"Listed 77 sessions"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:44:42.096Z","correlationId":"koksmat-log-1733132682095","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:44:42.096Z","correlationId":"koksmat-log-1733132682096","level":"INFO","message":"Created new session: koksmat_20241202T094442"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:44:42.116Z","correlationId":"koksmat-log-1733132682116","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:44:42.116Z","correlationId":"koksmat-log-1733132682116","level":"INFO","message":"Created new session: koksmat_20241202T094442"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:44:42.136Z","correlationId":"Listing all sessions","level":"INFO","message":""}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T09:44:42.136Z","correlationId":"koksmat-log-1733132682136","level":"INFO","message":"Listed 78 sessions"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T11:40:40.903Z","correlationId":"koksmat-log-1733139640903","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T11:40:40.904Z","correlationId":"koksmat-log-1733139640904","level":"INFO","message":"Created new session: koksmat_20241202T114040"}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T11:40:40.954Z","correlationId":"Listing all sessions","level":"INFO","message":""}
+{"moduleType":"COMPONENT","timestamp":"2024-12-02T11:40:40.954Z","correlationId":"koksmat-log-1733139640954","level":"INFO","message":"Listed 79 sessions"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T11:57:17.802Z","correlationId":"koksmat-log-1736078237802","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T11:57:17.805Z","correlationId":"koksmat-log-1736078237805","level":"INFO","message":"Created new session: koksmat_20250105T115717"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T11:57:17.890Z","correlationId":"Listing all sessions","level":"INFO","message":""}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T11:57:17.890Z","correlationId":"koksmat-log-1736078237890","level":"INFO","message":"Listed 80 sessions"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:12:45.697Z","correlationId":"koksmat-log-1736079165697","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:12:45.699Z","correlationId":"koksmat-log-1736079165699","level":"INFO","message":"Created new session: koksmat_20250105T121245"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:12:45.741Z","correlationId":"koksmat-log-1736079165741","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:12:45.742Z","correlationId":"koksmat-log-1736079165742","level":"INFO","message":"Created new session: koksmat_20250105T121245"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:12:45.765Z","correlationId":"Listing all sessions","level":"INFO","message":""}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:12:45.770Z","correlationId":"koksmat-log-1736079165770","level":"INFO","message":"Listed 81 sessions"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:15:21.874Z","correlationId":"koksmat-log-1736079321874","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:15:21.874Z","correlationId":"koksmat-log-1736079321874","level":"INFO","message":"Created new session: koksmat_20250105T121521"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:15:21.908Z","correlationId":"Listing all sessions","level":"INFO","message":""}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:15:21.908Z","correlationId":"koksmat-log-1736079321908","level":"INFO","message":"Listed 82 sessions"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:16:25.337Z","correlationId":"koksmat-log-1736079385336","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:16:25.337Z","correlationId":"koksmat-log-1736079385337","level":"INFO","message":"Created new session: koksmat_20250105T121625"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:16:25.363Z","correlationId":"koksmat-log-1736079385363","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:16:25.365Z","correlationId":"koksmat-log-1736079385365","level":"INFO","message":"Created new session: koksmat_20250105T121625"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:16:25.385Z","correlationId":"Listing all sessions","level":"INFO","message":""}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:16:25.387Z","correlationId":"koksmat-log-1736079385387","level":"INFO","message":"Listed 83 sessions"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:16:31.210Z","correlationId":"koksmat-log-1736079391210","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:16:31.210Z","correlationId":"koksmat-log-1736079391210","level":"INFO","message":"Created new session: koksmat_20250105T121631"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:16:31.247Z","correlationId":"Listing all sessions","level":"INFO","message":""}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:16:31.247Z","correlationId":"koksmat-log-1736079391247","level":"INFO","message":"Listed 84 sessions"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:17:41.383Z","correlationId":"koksmat-log-1736079461383","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:17:41.384Z","correlationId":"koksmat-log-1736079461384","level":"INFO","message":"Created new session: koksmat_20250105T121741"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:17:41.427Z","correlationId":"Listing all sessions","level":"INFO","message":""}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:17:41.427Z","correlationId":"koksmat-log-1736079461427","level":"INFO","message":"Listed 85 sessions"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:17:55.939Z","correlationId":"koksmat-log-1736079475939","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:17:55.939Z","correlationId":"koksmat-log-1736079475939","level":"INFO","message":"Created new session: koksmat_20250105T121755"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:17:55.977Z","correlationId":"Listing all sessions","level":"INFO","message":""}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:17:55.977Z","correlationId":"koksmat-log-1736079475977","level":"INFO","message":"Listed 86 sessions"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:18:01.134Z","correlationId":"koksmat-log-1736079481134","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:18:01.139Z","correlationId":"koksmat-log-1736079481139","level":"INFO","message":"Created new session: koksmat_20250105T121801"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:18:01.174Z","correlationId":"koksmat-log-1736079481174","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:18:01.174Z","correlationId":"koksmat-log-1736079481174","level":"INFO","message":"Created new session: koksmat_20250105T121801"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:18:01.200Z","correlationId":"Listing all sessions","level":"INFO","message":""}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:18:01.201Z","correlationId":"koksmat-log-1736079481201","level":"INFO","message":"Listed 87 sessions"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:18:37.171Z","correlationId":"koksmat-log-1736079517171","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:18:37.171Z","correlationId":"koksmat-log-1736079517171","level":"INFO","message":"Created new session: koksmat_20250105T121837"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:18:37.196Z","correlationId":"koksmat-log-1736079517196","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:18:37.196Z","correlationId":"koksmat-log-1736079517196","level":"INFO","message":"Created new session: koksmat_20250105T121837"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:18:37.219Z","correlationId":"Listing all sessions","level":"INFO","message":""}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:18:37.219Z","correlationId":"koksmat-log-1736079517219","level":"INFO","message":"Listed 88 sessions"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:19:51.652Z","correlationId":"koksmat-log-1736079591651","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:19:51.652Z","correlationId":"koksmat-log-1736079591652","level":"INFO","message":"Created new session: koksmat_20250105T121951"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:19:51.693Z","correlationId":"Listing all sessions","level":"INFO","message":""}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:19:51.693Z","correlationId":"koksmat-log-1736079591693","level":"INFO","message":"Listed 89 sessions"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:22:09.437Z","correlationId":"koksmat-log-1736079729437","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:22:09.438Z","correlationId":"koksmat-log-1736079729438","level":"INFO","message":"Created new session: koksmat_20250105T122209"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:22:09.463Z","correlationId":"koksmat-log-1736079729463","level":"INFO","message":"Creating new session with prefix: koksmat"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:22:09.464Z","correlationId":"koksmat-log-1736079729464","level":"INFO","message":"Created new session: koksmat_20250105T122209"}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:22:09.490Z","correlationId":"Listing all sessions","level":"INFO","message":""}
+{"moduleType":"COMPONENT","timestamp":"2025-01-05T12:22:09.491Z","correlationId":"koksmat-log-1736079729491","level":"INFO","message":"Listed 90 sessions"}

@@ -36,7 +36,7 @@ async function kLog(
   const stringArgs = args.map(stringifyArg);
   await koksmatLogServer({
     level,
-    //moduleType,
+    moduleType,
     args: stringArgs,
     correlationId,
   });

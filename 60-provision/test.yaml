@@ -1,0 +1,105 @@
+# Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nexi-intra-nexi-booking-v2-canary
+  labels:
+    app: nexi-intra-nexi-booking-v2-canary
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nexi-intra-nexi-booking-v2-canary
+  template:
+    metadata:
+      labels:
+        app: nexi-intra-nexi-booking-v2-canary
+    spec:
+      containers:
+        - name: nexi-intra-nexi-booking-v2-canary
+          image: ghcr.io/nexi-intra/nexi-booking-v2:canary
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 4444
+          env:
+            - name: NATS
+              value: nats://nats:4222
+
+---
+# Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: nexi-intra-nexi-booking-v2-canary
+  labels:
+    app: nexi-intra-nexi-booking-v2-canary
+spec:
+  ports:
+    - name: http
+      port: 5301
+      targetPort: 4444
+  selector:
+    app: nexi-intra-nexi-booking-v2-canary
+
+---
+# Gateway
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: Gateway
+metadata:
+  name: nexi-intra-nexi-booking-v2-gateway
+
+  labels:
+    app: nexi-intra-nexi-booking-v2-canary
+spec:
+  gatewayClassName: "nginx" # Replace with the actual GatewayClass
+  listeners:
+    - name: http
+      protocol: HTTP
+      port: 80
+      allowedRoutes:
+        namespaces:
+          from: Same
+        kinds:
+          - kind: HTTPRoute
+
+---
+# HTTPRoute
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  name: nexi-intra-nexi-booking-v2-route
+
+  labels:
+    app: nexi-intra-nexi-booking-v2-canary
+spec:
+  parentRefs:
+    - name: nexi-intra-nexi-booking-v2-gateway
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: nexi-intra-nexi-booking-v2-canary
+          port: 5301
+
+---
+# Ingress
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nexi-intra-nexi-booking-v2-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx" # Specify the ingress class
+spec:
+  rules:
+    - host: usinggateway.nexi-intra-nexi-booking-v2-canary.intra.nexigroup.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nexi-intra-nexi-booking-v2-gateway
+                port:
+                  number: 80

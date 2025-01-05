@@ -26,7 +26,12 @@ async function kLog(
   ...args: any[]
 ): Promise<void> {
   const stringArgs = args.map(stringifyArg);
-  await koksmatLogServer({ level, args: stringArgs, correlationId });
+  await koksmatLogServer({
+    level,
+    args: stringArgs,
+    correlationId,
+    moduleType: "",
+  });
 }
 
 export async function kVerbose(

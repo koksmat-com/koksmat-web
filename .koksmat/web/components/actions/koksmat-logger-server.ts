@@ -1,41 +1,67 @@
 "use server";
 
-import createKoksmat from "./koksmat";
-
-// Initialize Koksmat
-const koksmat = createKoksmat({ retentionMinutes: 120 });
+import { getKoksmat } from "./koksmat"; // Adjust the path as necessary
 
 // Koksmat logger levels
 type LogLevel = "verbose" | "info" | "warning" | "error" | "fatal";
 
+function logLeveltoNumber(level: LogLevel): number {
+  switch (level) {
+    case "verbose":
+      return 0;
+    case "info":
+      return 1;
+    case "warning":
+      return 2;
+    case "error":
+      return 3;
+    case "fatal":
+      return 4;
+    default:
+      return 1;
+  }
+}
+
 interface LogInput {
   level: LogLevel;
+  moduleType: string;
   args: string[];
   correlationId?: string;
 }
 
 export async function koksmatLogServer(input: LogInput): Promise<void> {
-  const { level, args, correlationId = `koksmat-log-${Date.now()}` } = input;
+  const {
+    level,
+    args,
+    moduleType,
+    correlationId = `koksmat-log-${Date.now()}`,
+  } = input;
+
+  const loglevel = (process.env.KOKSMAT_LOG_LEVEL as LogLevel) || "info";
+
+  if (logLeveltoNumber(level) < logLeveltoNumber(loglevel)) {
+    return;
+  }
 
   try {
     switch (level) {
       case "verbose":
-        await koksmat.verbose(correlationId, ...args);
+        await getKoksmat().verbose(correlationId, moduleType, args.join(" "));
         break;
       case "info":
-        await koksmat.info(correlationId, ...args);
+        await getKoksmat().info(correlationId, moduleType, args.join(" "));
         break;
       case "warning":
-        await koksmat.warning(correlationId, ...args);
+        await getKoksmat().warning(correlationId, moduleType, args.join(" "));
         break;
       case "error":
-        await koksmat.error(correlationId, ...args);
+        await getKoksmat().error(correlationId, moduleType, args.join(" "), "");
         break;
-      case "fatal":
-        await koksmat.fatal(correlationId, ...args);
-        break;
+      // case "fatal":
+      //   await getKoksmat().fatal(correlationId, ...args);
+      //   break;
       default:
-        await koksmat.info(correlationId, ...args);
+        await getKoksmat().info(correlationId, moduleType, args.join(" "));
     }
   } catch (error) {
     console.error(`[ERROR] ${correlationId}: Failed to log message:`, error);

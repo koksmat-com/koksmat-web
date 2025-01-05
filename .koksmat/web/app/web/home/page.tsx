@@ -1,3 +1,4 @@
+import ExecutiveDashboard from '@/app/dashboard/page';
 import HomePage from '@/components/home-page';
 import KoksmatWelcome from '@/components/koksmat-welcome';
 
@@ -10,6 +11,10 @@ export const metadata: Metadata = {
 };
 export default function Page() {
   return (
-    <KoksmatWelcome />
+    <div>
+      {/* <ExecutiveDashboard /> */}
+      <KoksmatWelcome />
+    </div>
+
   )
 }

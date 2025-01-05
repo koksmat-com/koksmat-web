@@ -13,6 +13,7 @@ import {
 import { Clock, Cloud, Code, Database, Lock, Sparkles, Users, User, Github, Calendar, Moon, Sun } from 'lucide-react'
 import { ComponentDoc } from './component-documentation-hub'
 import MagicExcelTransform from './magic-excel-transform'
+import Link from 'next/link'
 
 const KoksmatWelcomeSchema = z.object({})
 
@@ -76,7 +77,7 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
           </div>
         </section> */}
         {/* Hero Section */}
-        <section className="h-screen relative bg-gradient-to-b from-blue-50 to-white dark:from-blue-900 dark:to-gray-900 py-20">
+        <section className="hidden h-screen relative bg-gradient-to-b from-blue-50 to-white dark:from-blue-900 dark:to-gray-900 py-20">
           <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center">
             <div className="lg:w-1/2 lg:pr-12">
               <h1 className="text-5xl font-bold leading-tight mb-8">
@@ -129,16 +130,19 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
                 <div>Powered by Community.</div>
               </h1>
               <p className="text-xl text-gray-600 mb-4 dark:text-gray-400">
-                Join the Koksmat open-source revolution - shaping the future of secure, cloud-native development together.
+                Like to contribute to the Koksmat Platform - Shaping the future of secure, cloud-native collaborative development.
               </p>
               {/* <p className="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-8">
                 Coming in 2025
               </p> */}
               <div className="flex gap-4 max-w-md">
-                <Button className="flex-grow">
-                  <Github className="w-5 h-5 mr-2" />
-                  View on GitHub
-                </Button>
+                <Link href="https://learn.koksmat.com" target="_blank">
+
+                  <Button className="flex-grow">
+
+                    Learn more
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="lg:w-1/2 mt-12 lg:mt-0">
@@ -159,7 +163,7 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
           </div>
         </section>
 
-        {/* What is Koksmat */}
+        {/*         
         <section className="py-16 bg-white dark:bg-gray-800">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-8 dark:text-gray-200">What is Koksmat</h2>
@@ -169,7 +173,7 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
           </div>
         </section>
 
-        {/* Why choose Koksmat */}
+        
         <section className="py-16 bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-12 text-center dark:text-gray-200">Why Choose Koksmat in 2025</h2>
@@ -208,7 +212,7 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
           </div>
         </section>
 
-        {/* Community Section */}
+        
         <section className="py-16 bg-blue-600 text-white">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-4 text-center">Join the Koksmat Community</h2>
@@ -246,7 +250,7 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
           </div>
         </section>
 
-        {/* How to Contribute */}
+        
         <section className="py-16 bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
@@ -278,7 +282,7 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
           </div>
         </section>
 
-        {/* FAQ */}
+        
         <section className="py-16 bg-white dark:bg-gray-800">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-12 text-center dark:text-gray-200">Frequently Asked Questions</h2>
@@ -313,7 +317,7 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
           </div>
         </section>
 
-        {/* Footer */}
+         */}
         <footer className="bg-gray-900 text-gray-300 py-12">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
