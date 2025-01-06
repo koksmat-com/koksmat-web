@@ -109,7 +109,7 @@ export default function ExecutiveDashboard() {
                 </li>
                 <li className="flex items-center">
                   <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                  Project "Alpha" completed ahead of schedule
+                  Project &quot;Alpha&quot; completed ahead of schedule
                 </li>
                 <li className="flex items-center">
                   <span className="w-2 h-2 bg-yellow-500 rounded-full mr-2"></span>
