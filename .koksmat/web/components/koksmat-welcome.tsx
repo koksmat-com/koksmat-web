@@ -125,12 +125,18 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
           <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center">
             <div className="lg:w-1/2 lg:pr-12">
               <h1 className="text-5xl font-bold leading-tight mb-8">
-                <div>Designed for Zero Trust.</div>
-                <div>Built for Cloud Native.</div>
-                <div>Powered by Community.</div>
+                {/* <div>Designed for Zero Trust.</div>
+                <div>Built for Cloud Native.</div> */}
+                <div>Koksmat</div>
               </h1>
+              <h2 className="text-3xl font-bold leading-tight mb-8">
+                {/* <div>Designed for Zero Trust.</div>
+                <div>Built for Cloud Native.</div> */}
+                <div>Revolutionizing Microservices with Zero Trust and Inclusivity</div>
+              </h2>
               <p className="text-xl text-gray-600 mb-4 dark:text-gray-400">
-                Like to contribute to the Koksmat Platform - Shaping the future of secure, cloud-native collaborative development.
+                Empowering secure, reusable solutions in zero trust environments while enabling neurodiverse individuals to thrive in IT development.
+                {/* Like to contribute to the Koksmat Platform - Shaping the future of secure, cloud-native collaborative development. */}
               </p>
               {/* <p className="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-8">
                 Coming in 2025
@@ -318,47 +324,7 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
         </section>
 
          */}
-        <footer className="bg-gray-900 text-gray-300 py-12">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div>
-                <h3 className="font-semibold mb-4">About Koksmat</h3>
-                <ul className="space-y-2">
-                  <li><a href="#" className="hover:text-white">Our Vision for 2025</a></li>
-                  <li><a href="#" className="hover:text-white">Community</a></li>
-                  <li><a href="#" className="hover:text-white">Contribute</a></li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-4">Resources</h3>
-                <ul className="space-y-2">
-                  <li><a href="#" className="hover:text-white">Documentation</a></li>
-                  <li><a href="#" className="hover:text-white">Tutorials</a></li>
-                  <li><a href="#" className="hover:text-white">GitHub</a></li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-4">Features</h3>
-                <ul className="space-y-2">
-                  <li><a href="#" className="hover:text-white">Zero Trust</a></li>
-                  <li><a href="#" className="hover:text-white">Cloud Native</a></li>
-                  <li><a href="#" className="hover:text-white">Open Source</a></li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-4">Connect</h3>
-                <ul className="space-y-2">
-                  <li><a href="#" className="hover:text-white">GitHub Discussions</a></li>
-                  <li><a href="#" className="hover:text-white">Discord</a></li>
-                  <li><a href="https://bsky.app/profile/koksmat.bsky.social" target='_blank' className="hover:text-white">Bluesky</a></li>
-                </ul>
-              </div>
-            </div>
-            <div className="mt-12 pt-8 border-t border-gray-800 text-center">
-              <p>© 2024 Koksmat. Open source, built by the community, for the future of cloud-native development in 2025 and beyond.</p>
-            </div>
-          </div>
-        </footer>
+
       </div>
     </>
   )

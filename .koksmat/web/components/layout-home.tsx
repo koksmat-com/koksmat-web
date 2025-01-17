@@ -320,15 +320,15 @@ export default function LayoutHome({ children }: { children: React.ReactNode }) 
               </div>
               <nav className="flex space-x-6">
                 <Link href={"/" + APPNAME + "/home/"} className="text-gray-600 hover:text-orange-500 transition-colors">{t.home}</Link>
-                <Link href={"/" + APPNAME + "/home/cost"} className="text-gray-600 hover:text-orange-500 transition-colors">{t.docs}</Link>
+                {/* <Link href={"/" + APPNAME + "/home/cost"} className="text-gray-600 hover:text-orange-500 transition-colors">{t.docs}</Link> */}
                 {/*<Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors">{t.about}</Link> */}
-                <Link href={"/" + APPNAME + "/home/hero-to-zero"} className="text-gray-600 hover:text-orange-500 transition-colors">{t.herotozero}</Link>
-                <Link href="https://github.com/koksmat-com" target='_blank' className="text-gray-600 hover:text-orange-500 transition-colors">
+                {/* <Link href={"/" + APPNAME + "/home/hero-to-zero"} className="text-gray-600 hover:text-orange-500 transition-colors">{t.herotozero}</Link> */}
+                {/* <Link href="https://github.com/koksmat-com" target='_blank' className="text-gray-600 hover:text-orange-500 transition-colors">
                   <Github className="h-5 w-5" />
                   <span className="sr-only">{t.github}</span>
-                </Link>
+                </Link> */}
               </nav>
-              <Select onValueChange={(value: SupportedLanguage) => setLanguage(value)} defaultValue={language}>
+              {/* <Select onValueChange={(value: SupportedLanguage) => setLanguage(value)} defaultValue={language}>
                 <SelectTrigger className="w-[100px]">
                   <Globe className="h-4 w-4 mr-2" />
                   <SelectValue placeholder="Language" />
@@ -337,7 +337,7 @@ export default function LayoutHome({ children }: { children: React.ReactNode }) 
                   <SelectItem value="en">English</SelectItem>
                   <SelectItem value="da">Dansk</SelectItem>
                 </SelectContent>
-              </Select>
+              </Select> */}
               <Button variant="ghost" size="icon" onClick={toggleDarkMode}>
                 {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
                 <span className="sr-only">Toggle dark mode</span>
@@ -349,22 +349,22 @@ export default function LayoutHome({ children }: { children: React.ReactNode }) 
           </header>
           {mobileMenuOpen && (
             <nav className="md:hidden bg-white dark:bg-gray-800 py-4 px-6 space-y-4">
-              <div className="relative mb-4">
+              {/* <div className="relative mb-4">
                 <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                 <Input
                   type="search"
                   placeholder={t.search}
                   className="pl-8 pr-4 py-2 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
-              </div>
-              <Link href="#" className="block text-gray-600 dark:text-gray-300 hover:text-orange-500 transition-colors">{t.docs}</Link>
-              <Link href="#" className="block text-gray-600 dark:text-gray-300 hover:text-orange-500 transition-colors">{t.about}</Link>
-              <Link href="#" className="block text-gray-600 dark:text-gray-300 hover:text-orange-500 transition-colors">{t.blog}</Link>
-              <Link href="#" className="block text-gray-600 dark:text-gray-300 hover:text-orange-500 transition-colors">
+              </div> */}
+              {/* <Link href="#" className="block text-gray-600 dark:text-gray-300 hover:text-orange-500 transition-colors">{t.docs}</Link> */}
+              {/* <Link href="#" className="block text-gray-600 dark:text-gray-300 hover:text-orange-500 transition-colors">{t.about}</Link>
+              <Link href="#" className="block text-gray-600 dark:text-gray-300 hover:text-orange-500 transition-colors">{t.blog}</Link> */}
+              <Link href="https://github.com/koksmat-com" className="block text-gray-600 dark:text-gray-300 hover:text-orange-500 transition-colors">
                 <Github className="h-5 w-5 inline-block mr-2" />
                 <span>{t.github}</span>
               </Link>
-              <Select onValueChange={(value: SupportedLanguage) => setLanguage(value)} defaultValue={language}>
+              {/* <Select onValueChange={(value: SupportedLanguage) => setLanguage(value)} defaultValue={language}>
                 <SelectTrigger className="w-full">
                   <Globe className="h-4 w-4 mr-2" />
                   <SelectValue placeholder="Language" />
@@ -373,7 +373,7 @@ export default function LayoutHome({ children }: { children: React.ReactNode }) 
                   <SelectItem value="en">English</SelectItem>
                   <SelectItem value="da">Dansk</SelectItem>
                 </SelectContent>
-              </Select>
+              </Select> */}
               <Button variant="ghost" size="sm" onClick={toggleDarkMode} className="w-full justify-start">
                 {isDarkMode ? <Sun className="h-5 w-5 mr-2" /> : <Moon className="h-5 w-5 mr-2" />}
                 <span>{isDarkMode ? t.lightMode : t.darkMode}</span>
@@ -384,9 +384,47 @@ export default function LayoutHome({ children }: { children: React.ReactNode }) 
         {children}
 
         <footer className="bg-gray-800 dark:bg-gray-900 text-white py-8">
-          <div className="container mx-auto px-4 text-center">
-            <p className="text-sm">© 2024 Koksmat. {t.allRightsReserved}</p>
+
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {/* <div>
+                <h3 className="font-semibold mb-4">About Koksmat</h3>
+                <ul className="space-y-2">
+                  <li><a href="#" className="hover:text-white">Our Vision for 2025</a></li>
+                
+                </ul>
+              </div> */}
+              <div>
+                <h3 className="font-semibold mb-4">Resources</h3>
+                <ul className="space-y-2">
+                  <li><a href="https://learn.koksmat.com" className="hover:text-white">Documentation</a></li>
+                  {/* <li><a href="#" className="hover:text-white">Tutorials</a></li> */}
+                  <li><a href="https://github.com/orgs/koksmat-com" className="hover:text-white">GitHub</a></li>
+                </ul>
+              </div>
+              {/* <div>
+                <h3 className="font-semibold mb-4">Features</h3>
+                <ul className="space-y-2">
+                  <li><a href="#" className="hover:text-white">Zero Trust</a></li>
+                  <li><a href="#" className="hover:text-white">Cloud Native</a></li>
+                  <li><a href="#" className="hover:text-white">Open Source</a></li>
+                </ul>
+              </div> */}
+              <div>
+                <h3 className="font-semibold mb-4">Connect</h3>
+                <ul className="space-y-2">
+                  <li><a href="https://github.com/orgs/koksmat-com/discussions" className="hover:text-white">GitHub Discussions</a></li>
+                  {/* <li><a href="#" className="hover:text-white">Discord</a></li> */}
+                  <li><a href="https://bsky.app/profile/koksmat.bsky.social" target='_blank' className="hover:text-white">Bluesky</a></li>
+                </ul>
+              </div>
+            </div>
+            <div className="mt-12 pt-8 border-t border-gray-800 text-center">
+              <p>© 2024-2025 Koksmat. Open source, built by the community, for the future of cloud-native development in 2025 and beyond.</p>
+            </div>
           </div>
+
+
         </footer>
 
         {showScrollTop && (
