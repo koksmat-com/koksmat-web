@@ -132,17 +132,23 @@ const KoksmatWelcome: React.FC<KoksmatWelcomeProps> = (props) => {
               <h2 className="text-3xl font-bold leading-tight mb-8">
                 {/* <div>Designed for Zero Trust.</div>
                 <div>Built for Cloud Native.</div> */}
-                <div>Revolutionizing Microservices with Zero Trust and Inclusivity</div>
+                <div>Danish for assistant to the chef on a ship</div>
               </h2>
               <p className="text-xl text-gray-600 mb-4 dark:text-gray-400">
-                Empowering secure, reusable solutions in zero trust environments while enabling neurodiverse individuals to thrive in IT development.
+                A <b>Koksmat</b> is an Assistant Cook, or Assistant Chef ensures the kitchen is orderly and assists Cooks to prepare and arrange food. Their duties include cleaning the kitchen area, washing dishes and utensils and ensuring that the Cook has everything required to run the kitchen efficiently.
+
+
+
                 {/* Like to contribute to the Koksmat Platform - Shaping the future of secure, cloud-native collaborative development. */}
+              </p>
+              <p className="text-xl text-gray-600 mb-4 dark:text-gray-400">
+                Aiminig to make Koksmat you able to spend more time focusing on making you the Chef of your digital kitchen
               </p>
               {/* <p className="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-8">
                 Coming in 2025
               </p> */}
               <div className="flex gap-4 max-w-md">
-                <Link href="https://learn.koksmat.com" target="_blank">
+                <Link href="https://github.com/koksmat-com" target="_blank">
 
                   <Button className="flex-grow">
 
